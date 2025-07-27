@@ -1,78 +1,82 @@
+.btn-cor-tarefa svg{
+    display: block;
+}
 
-.head-card-criar .btn-cor-tarefa{
+.btn-cor-tarefa {
+
     display: flex;
     justify-content: center;
     align-items: center;
 
+    margin-left: 5px;
     padding: 10px;
 
     border-radius: 50px;
-    margin-right: 10px;}
+    margin-right: 10px;
+}
 
-.head-card-criar .btn-cor-tarefa:hover{
-   background-color: var(--cor-clara-escura);
-cursor:pointer;}
+.btn-cor-tarefa:hover {
+    background-color: var(--cor-clara-escura);
+    cursor: pointer;
 
-.head-card-criar .btn-cor-tarefa img{
-    display: block;
-    width: 21.41px;
-    height: 21.41px;}
-
-.logo-mudar-cor path{
-    fill: var(--cor-media);}
+}
 
 
 
+.logo-mudar-cor path {
+    
+    fill: var(--cor-media);
+}
 
 
-
-
-
-.opcoes-cores{
+.opcoes-cores {
 
     display: flex;
     gap: 5px;
     border-radius: 100px;
-    
+
     padding: 5px;
 
-    position: relative;
-    left: 15px;
-    bottom: 25px;
+    background-color: #FFFAF8;
+}
 
-    background-color: #FFFAF8;}
-
-.opcoes-cores span{
+.opcoes-cores span {
     display: block;
     width: 21px;
     height: 21px;
     border-radius: 50%;
 
-    padding: 5px;}
+    padding: 5px;
+}
 
-.opcoes-cores span:hover{
+.opcoes-cores span:hover {
     border: solid 1px #AC968D;
     cursor: pointer;
 }
 
-.opcoes-cores .cor-1{
-    background-color:#F6E2C7;}
+.opcoes-cores .cor-1 {
+    background-color: #F6E2C7;
+}
 
-.opcoes-cores .cor-2{
-    background-color:#F4B0A7;}
+.opcoes-cores .cor-2 {
+    background-color: #F4B0A7;
+}
 
-.opcoes-cores .cor-3{
-    background-color:#C6BCF4 ;}
+.opcoes-cores .cor-3 {
+    background-color: #C6BCF4;
+}
 
-.opcoes-cores .cor-4{
-    background-color:#96DCC2 ;}
+.opcoes-cores .cor-4 {
+    background-color: #96DCC2;
+}
 
-.opcoes-cores .cor-5{
+.opcoes-cores .cor-5 {
     background-image: url("../../icones/xadrez.png");
     background-position: center center;
     background-repeat: no-repeat;
-    
-    border: solid 1px rgb(167, 167, 167);}
+
+    border: solid 1px rgb(167, 167, 167);
+}
 
 
 
@@ -82,8 +86,8 @@ cursor:pointer;}
 
 
 
-    
 
-.esconder-opcoes-cores{
+
+.esconder-opcoes-cores {
     display: none;
 }

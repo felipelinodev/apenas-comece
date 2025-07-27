@@ -1,14 +1,15 @@
-.card{
+.card {
     width: 518px;
     background-color: var(--cor-base);
     border-radius: 15px;
-  
+
     margin-bottom: 10px;
     margin-top: 10px;
 
     box-shadow: 0px 0px 15px rgba(0, 0, 0, .1);
 }
-.card-head{
+
+.card-head {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,35 +18,35 @@
     border-bottom: solid 2px var(--cor-clara-escura);
 }
 
-.card-head h1{
+.card-head h1 {
     font-size: 1.1rem;
     font-weight: 400;
     font-style: normal;
     color: var(--cor-contraste);
-} 
+}
 
-.card-head input[type="checkbox"]{
+.card-head input[type="checkbox"] {
     accent-color: #AA948B;
     width: 20px;
     height: 20px;
     border-radius: 30px;
 }
 
-.card-head input[type="checkbox"]:hover{
+.card-head input[type="checkbox"]:hover {
     cursor: pointer;
 }
 
 
 
 
-.card-text{
+.card-text {
     font-size: 12px;
     padding: 20px;
     color: var(--cor-contraste);
 }
 
 
-.card-left{
+.card-left {
     display: flex;
     align-items: center;
     width: 50px;
@@ -54,13 +55,13 @@
 
 
 
-.card-left .card-tag{
+.card-left .card-tag {
     display: flex;
     justify-content: center;
     align-items: center;
 
     margin: 10px;
- 
+
 
     min-width: 100px;
     height: 28px;
@@ -70,4 +71,35 @@
     font-size: var(--zoom-descricao-size);
     color: var(--cor-contraste);
 
-    text-align: center;}
+    text-align: center;
+}
+
+
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+.card-delete-bottom svg>path {
+    fill: var(--cor-base)
+}
+
+.card-delete-bottom {
+    border-radius: 100px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 37px;
+    height: 37px;
+    background-color: var(--cor-media);
+}
+
+.card-delete-bottom:hover{
+    background-color: var(--cor-contraste);
+    cursor: pointer;
+}
