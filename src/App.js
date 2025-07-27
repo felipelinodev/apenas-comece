@@ -1,11 +1,11 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { FormatacaoTexto } from './components/FormatacaoTexto';
+import { FormatacaoTexto } from './components/FormatacaoTexto/FormatacaoTexto';
 
 //Componets
-import EntradaCampoCriar from './components/EntradaCampoCriar';
-import CriarCard from './components/CriarCard';
-import Card from './components/Card';
+import EntradaCampoCriar from './components/EntradaCampoCriar/EntradaCampoCriar';
+import CriarCard from './components/CriarCard/CriarCard';
+import Card from './components/Card/Card';
 
 function App() {
 
