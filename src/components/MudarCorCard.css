@@ -1,0 +1,54 @@
+
+
+.logo-mudar-cor path{
+    fill: var(--cor-media);}
+
+.opcoes-cores--card-uno{
+    bottom: 30px;
+
+    display: flex;
+    gap: 5px;
+    border-radius: 100px;
+    
+    padding: 5px;
+
+    position: relative;
+    bottom: 25px;
+
+    background-color: #FFFAF8;}
+
+.opcoes-cores--card-uno span{
+    display: block;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+
+    padding: 5px;}
+
+.opcoes-cores--card-uno span:hover{
+    border: solid 1px #AC968D;
+    cursor: pointer;
+}
+
+.opcoes-cores--card-uno .cor-1{
+    background-color:#F6E2C7;}
+
+.opcoes-cores--card-uno .cor-2{
+    background-color:#F4B0A7;}
+
+.opcoes-cores--card-uno .cor-3{
+    background-color:#C6BCF4 ;}
+
+.opcoes-cores--card-uno .cor-4{
+    background-color:#96DCC2 ;}
+
+.opcoes-cores--card-uno .cor-5{
+    background-image: url("../icones/xadrez.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    border: solid 1px rgb(167, 167, 167);}
+
+.esconder-opcoes-cores--card-uno{
+    display: none;
+}

@@ -1,0 +1,33 @@
+.painel-formatacao{
+    display: flex;
+    gap: 3px;
+    min-width:85px;
+    min-height:18px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor-clara);
+    border-radius: 3px;
+
+    padding: 3px;
+}
+
+
+.btn-format{
+    width: 18px;
+    height: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 2px;
+}
+
+.btn-format:hover{
+    cursor: pointer;
+    background-color: var(--cor-clara-escura);
+}
+
+.btn-format:active{
+    background-color: var(--cor-clara-escura);
+}
