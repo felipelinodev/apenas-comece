@@ -29,7 +29,6 @@ cursor:pointer;}
 
 
 .opcoes-cores{
-    bottom: 30px;
 
     display: flex;
     gap: 5px;
@@ -38,6 +37,7 @@ cursor:pointer;}
     padding: 5px;
 
     position: relative;
+    left: 15px;
     bottom: 25px;
 
     background-color: #FFFAF8;}

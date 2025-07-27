@@ -1,4 +1,5 @@
 import "./Card.css"
+import MudarCorCard, { MudarCor } from "../CriarCard/MudarCor"
 export const Card = (props) => {
   return (
     <>
@@ -13,6 +14,7 @@ export const Card = (props) => {
             <div className='card-bottom'>
                 <div className='card-left'>
                     <span className='card-tag'><p>Faculdade</p></span>
+                    <MudarCor />
                 </div>
                 <div className='card-delete-bottom'>
 

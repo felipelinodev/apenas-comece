@@ -72,7 +72,7 @@ export const MudarCor = () => {
 
   return (
     <>
-      <div className=".esconder-opcoes" ref={opcoesCores} onClick={handleMudaCor}>
+      <div className="esconder-opcoes" ref={opcoesCores} onClick={handleMudaCor}>
         <span className="cor-1" ></span>
         <span className="cor-2"></span>
         <span className="cor-3"></span>

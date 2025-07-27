@@ -28,7 +28,7 @@ export const CriarCard = ({setTdados}) => {
             <form>
                 <div className='head-card-criar'>
                     <input type="text" placeholder="Titulo" onChange={handleInputTitulo} />
-                    <MudarCor />
+                    <MudarCor PositionToltip="left"/>
                     
                 </div>
                 <span className="textarea-descricao-card" role="textarea" contentEditable onInput={handleInputDescricao}></span>
