@@ -20,6 +20,22 @@
 
 
 
+
+div::-webkit-scrollbar {
+  width: 10px;               /* width of the entire scrollbar */}
+
+div::-webkit-scrollbar-track {
+  background: transparent        /* color of the tracking area */}
+
+div::-webkit-scrollbar-thumb {
+  background-color: var(--cor-media);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  /* creates padding around scroll thumb */}
+
+
+
+
+
 h1{
     font-family: "Poppins", sans-serif;;
     font-size: 16px;

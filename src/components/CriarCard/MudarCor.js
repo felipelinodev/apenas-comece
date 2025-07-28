@@ -1,8 +1,8 @@
-import { useEffect, useRef} from "react"
+import { useRef} from "react"
 // import logoMudarCor from "../icones/mudar_cor.svg"
 import "./MudarCor.css"
 
-export const MudarCor = () => {
+export const MudarCor = ({setColorChange}) => {
   const root = document.documentElement
 
   const opcoesCores = useRef(null)
@@ -17,6 +17,8 @@ export const MudarCor = () => {
         root.style.setProperty("--cor-base", "#fff3e2ff")
         root.style.setProperty("--cor-clara-escura", "#F6E2C7")
         root.style.setProperty("--cor-clara", "#fffffeff")
+
+        
        },
     "cor-2" : () => {
         root.style.setProperty("--cor-contraste", "#c76053ff")
@@ -24,6 +26,7 @@ export const MudarCor = () => {
         root.style.setProperty("--cor-base", "#FFE0DB")
         root.style.setProperty("--cor-clara-escura", "#F4B0A7")
         root.style.setProperty("--cor-clara", "#FFEEEF")
+
        },
     "cor-3" : () => {
         root.style.setProperty("--cor-contraste", "#442C6C")
@@ -31,6 +34,7 @@ export const MudarCor = () => {
         root.style.setProperty("--cor-base", "#ded3f7ff")
         root.style.setProperty("--cor-clara-escura", "#BFB5E8")
         root.style.setProperty("--cor-clara", "#F0E9FF")
+
        },
     "cor-4" : () => {
         root.style.setProperty("--cor-contraste", "#345B4D")
@@ -38,6 +42,7 @@ export const MudarCor = () => {
         root.style.setProperty("--cor-base", "#DEF4EC")
         root.style.setProperty("--cor-clara-escura", "#A8DECC")
         root.style.setProperty("--cor-clara", "#F3FFFA")
+
        },
     "cor-5" : () => {
         root.style.setProperty("--cor-contraste", "#AA938B")
@@ -45,6 +50,7 @@ export const MudarCor = () => {
         root.style.setProperty("--cor-base", "#F5EBE6")
         root.style.setProperty("--cor-clara-escura", "#E9D8D0")
         root.style.setProperty("--cor-clara", "#FFFAF8")
+
        },
       
   }
@@ -57,12 +63,10 @@ export const MudarCor = () => {
     }
   }
 
-  useEffect(()=>{
-
-  }, [])
 
   const handleMudaCor = (event) => {
     const btnClasse = event.target.className
+    setColorChange(btnClasse)
     try{
       return paletaCores[btnClasse]()
     } catch {

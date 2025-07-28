@@ -1,12 +1,22 @@
 .card {
-    width: 518px;
-    background-color: var(--cor-base);
+    --cor-contraste-card: #AA938B;
+    --cor-media-card: #C4B4AD;
+    --cor-base-card: #F5EBE6;
+    --cor-clara-escura-card: #E9D8D0;
+    --cor-clara-card: #FFFAF8;
+
+
+    width: 495px;
+    background-color: var(--cor-base-card);
     border-radius: 15px;
 
     margin-bottom: 10px;
     margin-top: 10px;
 
     box-shadow: 0px 0px 15px rgba(0, 0, 0, .1);
+
+
+  
 }
 
 .card-head {
@@ -14,15 +24,14 @@
     align-items: center;
     justify-content: space-between;
     padding: 25px 25px 15px 25px;
-
-    border-bottom: solid 2px var(--cor-clara-escura);
+    border-bottom: solid 2px var(--cor-clara-escura-card);
 }
 
 .card-head h1 {
     font-size: 1.1rem;
     font-weight: 400;
     font-style: normal;
-    color: var(--cor-contraste);
+    color: var(--cor-contraste-card);
 }
 
 .card-head input[type="checkbox"] {
@@ -42,7 +51,7 @@
 .card-text {
     font-size: 12px;
     padding: 20px;
-    color: var(--cor-contraste);
+    color: var(--cor-contraste-card);
 }
 
 
@@ -66,10 +75,10 @@
     min-width: 100px;
     height: 28px;
     border-radius: 50px;
-    background-color: var(--cor-clara-escura);
+    background-color: var(--cor-clara-escura-card);
 
     font-size: var(--zoom-descricao-size);
-    color: var(--cor-contraste);
+    color: var(--cor-contraste-card);
 
     text-align: center;
 }
@@ -85,7 +94,7 @@
 
 
 .card-delete-bottom svg>path {
-    fill: var(--cor-base)
+    fill: var(--cor-base-card)
 }
 
 .card-delete-bottom {
@@ -96,10 +105,10 @@
     justify-content: center;
     width: 37px;
     height: 37px;
-    background-color: var(--cor-media);
+    background-color: var(--cor-media-card);
 }
 
 .card-delete-bottom:hover{
-    background-color: var(--cor-contraste);
+    background-color: var(--cor-contraste-card);
     cursor: pointer;
 }

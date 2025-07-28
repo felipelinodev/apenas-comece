@@ -114,7 +114,19 @@
     background-color: var(--cor-clara-escura);}
 
 
+.btn-criar-desable{
+    width: 137px;
+    height: 37px;
+    border-radius: 9px;
+    border: solid 1.7px var(--cor-clara-escura);
 
+    color: var(--cor-media);
+    font-size: var(--zoom-descricao-size);
+
+    background: transparent;
+
+    cursor: not-allowed;
+}
 
 
 ::selection{

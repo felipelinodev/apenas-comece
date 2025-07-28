@@ -1,0 +1,10 @@
+.caixa-todos-cards{
+    background-color: transparent;
+    width: 100%;
+    max-height: 500px;
+    padding: 10px;
+
+    overflow-y: auto; /* Apenas barra de rolagem vertical, se necessário */
+    overflow-x: hidden; /* Opcional: Esconde qualquer rolagem horizontal */
+
+}
