@@ -1,9 +1,70 @@
 import "./Card.css"
 import MudarCor from "../CriarCard/MudarCor"
-export const Card = (props) => {
+import { useState, useRef, useEffect } from "react"
+
+
+const Card = (props) => {
+    const [cor, setCor] = useState("")
+    const cardRef = useRef(null)
+
+    useEffect(() => {
+       setCor(props.corDeCriacao)
+    },[props.corDeCriacao])
+
+    //Design patern Strategy para reduzir ifs feiosos
+    const paletaCores = {
+        "cor-1": () => {
+            cardRef.current.style.setProperty("--cor-contraste-card", "#D4A360");
+            cardRef.current.style.setProperty("--cor-media-card", "#F5CC93");
+            cardRef.current.style.setProperty("--cor-base-card", "#fff3e2ff");
+            cardRef.current.style.setProperty("--cor-clara-escura-card", "#F6E2C7");
+            cardRef.current.style.setProperty("--cor-clara-card", "#fffffeff");
+        },
+        "cor-2": () => {
+            cardRef.current.style.setProperty("--cor-contraste-card", "#c76053ff")
+            cardRef.current.style.setProperty("--cor-media-card", "#FDA99E")
+            cardRef.current.style.setProperty("--cor-base-card", "#FFE0DB")
+            cardRef.current.style.setProperty("--cor-clara-escura-card", "#F4B0A7")
+            cardRef.current.style.setProperty("--cor-clara-card", "#FFEEEF")
+
+        },
+
+        "cor-3": () => {
+            cardRef.current.style.setProperty("--cor-contraste-card", "#442C6C")
+            cardRef.current.style.setProperty("--cor-media-card", "#9080C7")
+            cardRef.current.style.setProperty("--cor-base-card", "#ded3f7ff")
+            cardRef.current.style.setProperty("--cor-clara-escura-card", "#BFB5E8")
+            cardRef.current.style.setProperty("--cor-clara-card", "#F0E9FF")
+
+        },
+
+        "cor-4": () => {
+            cardRef.current.style.setProperty("--cor-contraste-card", "#345B4D")
+            cardRef.current.style.setProperty("--cor-media-card", "#5E9985")
+            cardRef.current.style.setProperty("--cor-base-card", "#DEF4EC")
+            cardRef.current.style.setProperty("--cor-clara-escura-card", "#A8DECC")
+            cardRef.current.style.setProperty("--cor-clara-card", "#F3FFFA")
+
+        },
+
+        "cor-5": () => {
+            cardRef.current.style.setProperty("--cor-contraste-card", "#AA938B")
+            cardRef.current.style.setProperty("--cor-media-card", "#C4B4AD")
+            cardRef.current.style.setProperty("--cor-base-card", "#F5EBE6")
+            cardRef.current.style.setProperty("--cor-clara-escura-card", "#E9D8D0")
+            cardRef.current.style.setProperty("--cor-clara-card", "#FFFAF8")
+
+        }
+    }
+    try {
+        paletaCores[cor]()
+    } catch {
+        console.log("deu erro ao mudar cor")
+    }
+
     return (
         <>
-            <div className='card'>
+            <div className='card' ref={cardRef}>
                 <div className='card-head'>
                     <h1>{props.titulo}</h1>
                     <input type="checkbox" />
@@ -14,7 +75,7 @@ export const Card = (props) => {
                 <div className='card-bottom'>
                     <div className='card-left'>
                         <span className='card-tag'><p>Faculdade</p></span>
-                        <MudarCor />
+                        <MudarCor setCor={setCor} cor={cor} />
                     </div>
                     <div className='card-delete-bottom'>
                         <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">

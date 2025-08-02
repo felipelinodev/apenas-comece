@@ -11,10 +11,15 @@ function App() {
   const [cards, setCards] = useState([])
   const [dados, setTdados] = useState({})
   
+  const [corDeCriacao, setCorDeCriacao] = useState("")
+
+  console.log(corDeCriacao)
 
   useEffect(() => {
     if (Object.keys(dados).length > 0) {
+      setCorDeCriacao(dados.cor)
       setCards((prevState) => [...prevState, dados])
+      
     }
   }, [dados])
 
@@ -25,7 +30,7 @@ function App() {
       <CriarCard setTdados={setTdados}/>
       <CaixaDeCards>
         {cards.map((tarefa, index) => (
-        <Card key={index} titulo={tarefa.titulo} subtitulo={tarefa.subtitulo}/>
+        <Card key={index} titulo={tarefa.titulo} subtitulo={tarefa.subtitulo} corDeCriacao={corDeCriacao}/>
       ))}
       </CaixaDeCards>
       

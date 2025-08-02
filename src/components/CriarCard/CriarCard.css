@@ -1,11 +1,18 @@
 
 
 .container-card-criar{
+    --cor-contraste-criar-card: "#AA938B";
+    --cor-media-criar-card: "#C4B4AD";
+    --cor-base-criar-card: "#F5EBE6";
+    --cor-clara-escura-criar-card: "#E9D8D0";
+    --cor-clara-criar-card: "#FFFAF8";
+
+
     margin-top: 10px;
 
     width: 510px;
     min-height: 205px;
-    background-color: var(--cor-base);
+    background-color: var(--cor-base-criar-card);
 
     border-radius: 15px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, .1);}
@@ -16,7 +23,7 @@
     justify-content: space-around;}
 
 .head-card-criar input{
-    color: var(--cor-contraste);
+    color: var(--cor-contraste-criar-card);
     padding: 25px;
     padding-top: 30px;
     border: none;
@@ -29,7 +36,7 @@
     font-weight: 500;}
 
 .head-card-criar input::placeholder{
-    color: var(--cor-contraste);}
+    color: var(--cor-contraste-criar-card);}
 
 .head-card-criar input:focus{
     outline: none;}
@@ -46,8 +53,8 @@
     border: none;
 
     font-size: var(--zoom-descricao-size);
-    color: var(--cor-contraste);
-    background-color: var(--cor-clara);
+    color: var(--cor-contraste-criar-card);
+    background-color: var(--cor-clara-criar-card);
     padding: 15px;
     
 
@@ -58,7 +65,7 @@
 .textarea-descricao-card[contenteditable]:empty::before{
     content: "Meu primeiro card...";
     font-size: var(--zoom-descricao-size);
-    color: var(--cor-contraste);} 
+    color: var(--cor-contraste-criar-card);} 
 
 
 .textarea-descricao-card:focus{
@@ -90,10 +97,10 @@
     width: 100px;
     height: 28px;
     border-radius: 50px;
-    background-color: var(--cor-clara-escura);
+    background-color: var(--cor-clara-escura-criar-card);
 
     font-size: var(--zoom-descricao-size);
-    color: var(--cor-contraste);
+    color: var(--cor-contraste-criar-card);
 
     text-align: center;}
 
@@ -102,16 +109,16 @@
     width: 137px;
     height: 37px;
     border-radius: 9px;
-    border: solid 1.7px var(--cor-contraste);
+    border: solid 1.7px var(--cor-contraste-criar-card);
 
-    color: var(--cor-contraste);
+    color: var(--cor-contraste-criar-card);
     font-size: var(--zoom-descricao-size);
 
     background: transparent;}
 
 .bottom-card-criar .btn-criar-tarefa:hover{
     cursor: pointer;
-    background-color: var(--cor-clara-escura);}
+    background-color: var(--cor-clara-escura-criar-card);}
 
 
 .btn-criar-desable{

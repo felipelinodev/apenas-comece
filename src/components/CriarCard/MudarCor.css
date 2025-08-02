@@ -1,3 +1,12 @@
+.btn-cor-tarefa{
+    --cor-contraste-btn-cor: #AA938B;
+    --cor-media-btn-cor: #C4B4AD;
+    --cor-base-btn-cor: #F5EBE6;
+    --cor-clara-escura-btn-cor: #E9D8D0;
+    --cor-clara-btn-cor: #FFFAF8;
+}
+
+
 .btn-cor-tarefa svg{
     display: block;
 }
@@ -15,18 +24,14 @@
     margin-right: 10px;
 }
 
+
 .btn-cor-tarefa:hover {
-    background-color: var(--cor-clara-escura);
-    cursor: pointer;
-
-}
-
-
-
+    background-color: var(--cor-clara-escura-btn-cor);
+    cursor: pointer;}
 .logo-mudar-cor path {
-    
-    fill: var(--cor-media);
-}
+    fill: var(--cor-media-btn-cor);}
+
+
 
 
 .opcoes-cores {
