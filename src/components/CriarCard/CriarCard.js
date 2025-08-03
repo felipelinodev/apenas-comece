@@ -1,9 +1,11 @@
 import "./CriarCard.css"
 import MudarCor from "./MudarCor"
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useMemo } from "react"
 
 
 export const CriarCard = ({ setTdados }) => {
+
+    const [id, setId] = useState(0)
 
     const [cor, setCor] = useState("cor-5")
     const criarCardRef = useRef(null)
@@ -11,7 +13,7 @@ export const CriarCard = ({ setTdados }) => {
 
 
     //Design patern Strategy para reduzir ifs feiosos
-    const paletaCores = {
+    const paletaCores = useMemo(() => ({
         "cor-1": () => {
             criarCardRef.current.style.setProperty("--cor-contraste-criar-card", "#D4A360");
             criarCardRef.current.style.setProperty("--cor-media-criar-card", "#F5CC93");
@@ -52,9 +54,13 @@ export const CriarCard = ({ setTdados }) => {
             criarCardRef.current.style.setProperty("--cor-base-criar-card", "#F5EBE6")
             criarCardRef.current.style.setProperty("--cor-clara-escura-criar-card", "#E9D8D0")
             criarCardRef.current.style.setProperty("--cor-clara-criar-card", "#FFFAF8")
+        },
 
-        }
-    }
+
+    }), [])
+        
+        
+    
 
     useEffect(() => {
         try {
@@ -62,11 +68,7 @@ export const CriarCard = ({ setTdados }) => {
         } catch {
             console.log("deu erro ao mudar cor")
         }
-    }, [cor])
-
-
-
-
+    }, [cor, paletaCores])
 
 
     const [estadoButonCriar, setEstadoButonCriar] = useState(false)
@@ -83,11 +85,16 @@ export const CriarCard = ({ setTdados }) => {
         setSubtitulo(event.target.textContent)
     }
 
+
+
     const handleClick = (event) => {
+        setId((prevId) => prevId + Math.floor(Math.random() * 50))
+        
         setTdados({
             titulo,
             subtitulo,
             cor,
+            id,
         })
         event.preventDefault()
     }
@@ -109,7 +116,7 @@ export const CriarCard = ({ setTdados }) => {
                     <MudarCor setCor={setCor} cor={cor} />
 
                 </div>
-                <span className="textarea-descricao-card" role="textarea" contentEditable onInput={handleInputDescricao}></span>
+                <span className="textarea-descricao-card" contentEditable onInput={handleInputDescricao}></span>
                 <div className="bottom-card-criar">
                     <span className='tag-card-criar'><p>Faculdade</p></span>
                     {estadoButonCriar && <button className="btn-criar-tarefa" onClick={handleClick}>Criar tarefa</button>}

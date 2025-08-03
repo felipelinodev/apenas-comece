@@ -29,7 +29,7 @@
     background-color: var(--cor-clara-escura-btn-cor);
     cursor: pointer;}
 .logo-mudar-cor path {
-    fill: var(--cor-media-btn-cor);}
+    fill: var(--cor-contraste-btn-cor);}
 
 
 

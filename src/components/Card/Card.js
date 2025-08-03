@@ -8,8 +8,11 @@ const Card = (props) => {
     const cardRef = useRef(null)
 
     useEffect(() => {
-       setCor(props.corDeCriacao)
-    },[props.corDeCriacao])
+        setCor(props.corDeCriacao)
+
+        console.log(cardRef.current)
+
+    }, [props.corDeCriacao])
 
     //Design patern Strategy para reduzir ifs feiosos
     const paletaCores = {
@@ -26,7 +29,6 @@ const Card = (props) => {
             cardRef.current.style.setProperty("--cor-base-card", "#FFE0DB")
             cardRef.current.style.setProperty("--cor-clara-escura-card", "#F4B0A7")
             cardRef.current.style.setProperty("--cor-clara-card", "#FFEEEF")
-
         },
 
         "cor-3": () => {
@@ -35,7 +37,6 @@ const Card = (props) => {
             cardRef.current.style.setProperty("--cor-base-card", "#ded3f7ff")
             cardRef.current.style.setProperty("--cor-clara-escura-card", "#BFB5E8")
             cardRef.current.style.setProperty("--cor-clara-card", "#F0E9FF")
-
         },
 
         "cor-4": () => {
@@ -44,7 +45,6 @@ const Card = (props) => {
             cardRef.current.style.setProperty("--cor-base-card", "#DEF4EC")
             cardRef.current.style.setProperty("--cor-clara-escura-card", "#A8DECC")
             cardRef.current.style.setProperty("--cor-clara-card", "#F3FFFA")
-
         },
 
         "cor-5": () => {
@@ -56,12 +56,20 @@ const Card = (props) => {
 
         }
     }
-    try {
-        paletaCores[cor]()
-    } catch {
-        console.log("deu erro ao mudar cor")
-    }
 
+    useEffect(() => {
+        try {
+            paletaCores[cor]()
+        } catch {
+            console.log("deu erro ao mudar cor")
+        }
+    }, [cor])
+
+
+
+    const deletarCard = () => {
+        props.removerTarefa(props.id)
+    }
     return (
         <>
             <div className='card' ref={cardRef}>
@@ -77,7 +85,7 @@ const Card = (props) => {
                         <span className='card-tag'><p>Faculdade</p></span>
                         <MudarCor setCor={setCor} cor={cor} />
                     </div>
-                    <div className='card-delete-bottom'>
+                    <div className='card-delete-bottom' onClick={deletarCard}>
                         <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2.39447 14.42C1.95548 14.42 1.57969 14.2637 1.26707 13.9511C0.954462 13.6385 0.798157 13.2627 0.798157 12.8237V2.44763H0V0.851318H3.99078V0.0531616H8.77972V0.851318H12.7705V2.44763H11.9724V12.8237C11.9724 13.2627 11.816 13.6385 11.5034 13.9511C11.1908 14.2637 10.815 14.42 10.376 14.42H2.39447ZM3.99078 11.2274H5.5871V4.04395H3.99078V11.2274ZM7.18341 11.2274H8.77972V4.04395H7.18341V11.2274Z" fill="none" />
                         </svg>
