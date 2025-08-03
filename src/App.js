@@ -8,6 +8,7 @@ import CriarCard from './components/CriarCard/CriarCard';
 import Card from './components/Card/Card';
 import CaixaDeCards from './components/CaixaDeCards/CaixaDeCards';
 import EditCard from './pages/EditCard/EditCard';
+import EntradaCampoCriar from "./components/EntradaCampoCriar/EntradaCampoCriar"
 
 function App() {
 
@@ -17,6 +18,9 @@ function App() {
   const [cardDeletar, setCardDeletar] = useState()
 
   const [corDeCriacao, setCorDeCriacao] = useState("")
+
+
+  const [comecoDeDigito, setComecoDeDigito] = useState()
 
   console.log(cardDeletar)
 
@@ -37,13 +41,21 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-
+        
         <Routes>
-          <Route path='/' element={
+          <Route path='/' element={<EntradaCampoCriar setComecoDeDigito={setComecoDeDigito}/>} />
+
+          <Route path='/cards' element={
             <>
-              {/* <EntradaCampoCriar setValorInput={handleSetValor}/> */}
-              <CriarCard setTdados={setTdados} />
+              {/* {ComecoDeDigito !== "" ? (
+
+              ) : (
+
+
+              )} */}
+              <EntradaCampoCriar setComecoDeDigito={setComecoDeDigito}/>
               <CaixaDeCards>
+                
                 {cards.map((tarefa) => (
                   <Card
                     id={tarefa.id}
@@ -57,6 +69,7 @@ function App() {
             </>
           } />
           <Route path='/edit' element={<EditCard cards={cards} />} />
+          <Route path='/criar_card' element={<CriarCard setTdados={setTdados} comecoDeDigito={comecoDeDigito}/>} />
         </Routes>
       </BrowserRouter>
     </div>

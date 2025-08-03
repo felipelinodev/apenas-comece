@@ -1,15 +1,19 @@
 import "./CriarCard.css"
 import MudarCor from "./MudarCor"
 import { useEffect, useState, useRef, useMemo } from "react"
+import { useNavigate } from "react-router-dom"
 
 
-export const CriarCard = ({ setTdados }) => {
+export const CriarCard = ({ setTdados, comecoDeDigito }) => {
+
+    const navigate = useNavigate()
 
     const [id, setId] = useState(0)
 
     const [cor, setCor] = useState("cor-5")
     const criarCardRef = useRef(null)
 
+   
 
 
     //Design patern Strategy para reduzir ifs feiosos
@@ -73,6 +77,8 @@ export const CriarCard = ({ setTdados }) => {
 
     const [estadoButonCriar, setEstadoButonCriar] = useState(false)
     const [titulo, setTitulo] = useState("")
+    const refTitulo = useRef()
+
     const [subtitulo, setSubtitulo] = useState("")
 
 
@@ -85,6 +91,14 @@ export const CriarCard = ({ setTdados }) => {
         setSubtitulo(event.target.textContent)
     }
 
+    
+    useEffect(() => {
+        if(comecoDeDigito !== ""){
+            setTitulo(comecoDeDigito)
+            refTitulo.current.focus() 
+        }
+    }, [comecoDeDigito])
+
 
 
     const handleClick = (event) => {
@@ -96,6 +110,11 @@ export const CriarCard = ({ setTdados }) => {
             cor,
             id,
         })
+
+        setTitulo("")
+        setSubtitulo("")
+
+        navigate("/cards")
         event.preventDefault()
     }
 
@@ -112,7 +131,7 @@ export const CriarCard = ({ setTdados }) => {
         <div ref={criarCardRef} className="container-card-criar">
             <form>
                 <div className='head-card-criar'>
-                    <input type="text" placeholder="Titulo" onChange={handleInputTitulo} />
+                    <input type="text" placeholder="Titulo" onChange={handleInputTitulo} ref={refTitulo} value={titulo}/>
                     <MudarCor setCor={setCor} cor={cor} />
 
                 </div>
