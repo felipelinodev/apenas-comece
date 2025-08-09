@@ -19,7 +19,7 @@
   
 }
 
-.card-head {
+.card-head, .card_head_check {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -35,7 +35,7 @@
 }
 
 .card-head input[type="checkbox"] {
-    accent-color: #AA948B;
+    accent-color: var(--cor-contraste-card);
     width: 20px;
     height: 20px;
     border-radius: 30px;
@@ -46,13 +46,54 @@
 }
 
 
-
-
 .card-text {
     font-size: 12px;
     padding: 20px;
     color: var(--cor-contraste-card);
 }
+
+
+/*CASO CHECADO ----------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+.card_head_check h1 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: italic;
+    color: color-mix(in srgb, var(--cor-contraste-card) 50%, transparent);
+    text-decoration:  line-through;
+}
+
+.card_head_check input[type="checkbox"] {
+    accent-color: var(--cor-contraste-card);
+    width: 20px;
+    height: 20px;
+    border-radius: 30px;
+
+
+}
+
+.card_head_check input[type="checkbox"]:hover {
+    cursor: pointer;
+}
+
+.card-text-check {
+    font-size: 12px;
+    padding: 20px;
+    font-style: italic;
+    color: color-mix(in srgb, var(--cor-contraste-card) 50%, transparent);
+    text-decoration:  line-through;
+    
+}
+
+/*----------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+
+
+
 
 
 .card-left {

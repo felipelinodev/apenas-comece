@@ -6,6 +6,7 @@ import { useState, useRef, useEffect } from "react"
 const Card = (props) => {
     const [cor, setCor] = useState("")
     const cardRef = useRef(null)
+    const [estadoCheck, setEstadoCheck] = useState(false)
 
     useEffect(() => {
         setCor(props.corDeCriacao)
@@ -70,20 +71,40 @@ const Card = (props) => {
     const deletarCard = () => {
         props.removerTarefa(props.id)
     }
+
+    const handleCheck = () => {
+        // Quando eu checar, muda as classes daquele card em especifico
+        console.log("Card concluido")
+        setEstadoCheck(!estadoCheck)
+
+    }
+
+
+
+
     return (
         <>
             <div className='card' ref={cardRef}>
-                <div className='card-head'>
+                <div className={estadoCheck ? 'card_head_check' : 'card-head'}>
                     <h1>{props.titulo}</h1>
-                    <input type="checkbox" />
+                    <input type="checkbox" onClick={handleCheck}/>
                 </div>
-                <div className='card-text'>
+                <div className={estadoCheck ? 'card-text-check' : 'card-text'}>
                     <p>{props.subtitulo}</p>
                 </div>
                 <div className='card-bottom'>
                     <div className='card-left'>
                         <span className='card-tag'><p>Faculdade</p></span>
-                        <MudarCor setCor={setCor} cor={cor} />
+                        {estadoCheck ? (
+                            <></>
+                        ) : (
+                            <>
+                                
+                                <MudarCor setCor={setCor} cor={cor} />
+                            </>
+                            
+                        ) }
+                        
                     </div>
                     <div className='card-delete-bottom' onClick={deletarCard}>
                         <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">

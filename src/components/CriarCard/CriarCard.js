@@ -4,7 +4,7 @@ import { useEffect, useState, useRef, useMemo } from "react"
 import { useNavigate } from "react-router-dom"
 
 
-export const CriarCard = ({ setTdados, comecoDeDigito }) => {
+export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => {
 
     const navigate = useNavigate()
 
@@ -102,18 +102,19 @@ export const CriarCard = ({ setTdados, comecoDeDigito }) => {
 
 
     const handleClick = (event) => {
-        setId((prevId) => prevId + Math.floor(Math.random() * 50))
-        
+        const novoId = id + Math.floor(Math.random() * 50)
+
+        setId(novoId)
         setTdados({
             titulo,
             subtitulo,
             cor,
-            id,
+            id: novoId,
         })
 
         setTitulo("")
         setSubtitulo("")
-
+        setSeAlgumCardCriou(true)
         navigate("/cards")
         event.preventDefault()
     }
