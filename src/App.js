@@ -21,7 +21,6 @@ function App() {
   const [comecoDeDigito, setComecoDeDigito] = useState()
 
 
-
   useEffect(() => {
     if (Object.keys(dados).length > 0) {
       setCards((prevState) => [...prevState, dados])

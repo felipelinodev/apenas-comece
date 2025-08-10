@@ -77,34 +77,15 @@
 
 
 
-
-
-
-
-
 .bottom-card-criar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px;}
 
-.bottom-card-criar .tag-card-criar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
 
-    width: 100px;
-    height: 28px;
-    border-radius: 50px;
-    background-color: var(--cor-clara-escura-criar-card);
-
-    font-size: var(--zoom-descricao-size);
-    color: var(--cor-contraste-criar-card);
-
-    text-align: center;}
-
-.bottom-card-criar .btn-criar-tarefa{
+.btn-criar-tarefa{
     
     width: 137px;
     height: 37px;

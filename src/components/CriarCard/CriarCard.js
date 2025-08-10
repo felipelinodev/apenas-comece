@@ -1,5 +1,8 @@
 import "./CriarCard.css"
 import MudarCor from "./MudarCor"
+import CriarCategoria from "../CriarCategoria/CriarCategoria"
+
+
 import { useEffect, useState, useRef, useMemo } from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -138,7 +141,8 @@ export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => 
                 </div>
                 <span className="textarea-descricao-card" contentEditable onInput={handleInputDescricao}></span>
                 <div className="bottom-card-criar">
-                    <span className='tag-card-criar'><p>Faculdade</p></span>
+                    {/* <span className='tag-card-criar'><p>Categoria</p></span> */}
+                    <CriarCategoria setCor={setCor} cor={cor}/>
                     {estadoButonCriar && <button className="btn-criar-tarefa" onClick={handleClick}>Criar tarefa</button>}
                     {!estadoButonCriar && <button className="btn-criar-desable" onClick={handleClick} disabled>Criar tarefa</button>}
                 </div>

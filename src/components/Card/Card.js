@@ -87,22 +87,20 @@ const Card = (props) => {
             <div className='card' ref={cardRef}>
                 <div className={estadoCheck ? 'card_head_check' : 'card-head'}>
                     <h1>{props.titulo}</h1>
-                    <input type="checkbox" onClick={handleCheck}/>
+                    <input type="checkbox" className="checkbox-redondo" onClick={handleCheck}/>
                 </div>
                 <div className={estadoCheck ? 'card-text-check' : 'card-text'}>
                     <p>{props.subtitulo}</p>
                 </div>
                 <div className='card-bottom'>
                     <div className='card-left'>
-                        <span className='card-tag'><p>Faculdade</p></span>
+                        <span className='card-tag'><p>Categoria</p></span>
                         {estadoCheck ? (
                             <></>
                         ) : (
                             <>
-                                
                                 <MudarCor setCor={setCor} cor={cor} />
                             </>
-                            
                         ) }
                         
                     </div>
