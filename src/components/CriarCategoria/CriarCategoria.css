@@ -1,4 +1,11 @@
 .categoria {
+    --cor-contraste-categ: #AA938B;
+    --cor-media-categ: #C4B4AD;
+    --cor-base-categ: #F5EBE6;
+    --cor-clara-escura-categ: #E9D8D0;
+    --cor-clara-categ: #FFFAF8;
+
+
     text-align: center;
     padding: 10px;
 
@@ -7,9 +14,9 @@
     height: 28px;
 
     border-radius: 50px;
-    background-color: #E9D8D0;
+    background-color: inherit;
 
-    color: #AA938B;
+    color: inherit;
     font-size: var(--zoom-descricao-size);
 }
 
@@ -19,14 +26,15 @@
 
 .categoria::placeholder {
     text-align: center;
-    color: #AA938B;
+    color: var(--cor-contraste-categ);
     font-size: var(--zoom-descricao-size);
 
 }
 
 .categorias-salvas {
+    color: var(--cor-contraste-categ);
     border-radius: 15px;
-    background-color: #E9D8D0;
+    background-color: var(--cor-clara-escura-categ);
 
     display: flex;
     flex-direction: column;
@@ -37,7 +45,7 @@
 
 
 .categorias-salvas li {
-    color: #AA938B;
+    color: var(--cor-contraste-categ);
 
     display: flex;
     flex-direction: column;
@@ -48,14 +56,14 @@
     height: 28px;
     font-size: var(--zoom-descricao-size);
 
-    background-color: #f0e1da;
+    background-color: var(--cor-clara-escura-categ);
     
     border-radius: 200px;
 }
 
 .categorias-salvas li:hover{
     cursor: pointer;
-    background-color: #e9d5cd;
+    background-color: var(--cor-media-categ);
 }
 
 

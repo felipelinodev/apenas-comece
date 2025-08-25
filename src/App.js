@@ -55,7 +55,8 @@ function App() {
                         removerTarefa={removerTarefa}
                         titulo={tarefa.titulo}
                         subtitulo={tarefa.subtitulo}
-                        corDeCriacao={tarefa.cor} />
+                        corDeCriacao={tarefa.cor}
+                         />
                     ))}
                   </CaixaDeCards>
                 </>

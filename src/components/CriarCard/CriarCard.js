@@ -142,7 +142,7 @@ export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => 
                 <span className="textarea-descricao-card" contentEditable onInput={handleInputDescricao}></span>
                 <div className="bottom-card-criar">
                     {/* <span className='tag-card-criar'><p>Categoria</p></span> */}
-                    <CriarCategoria setCor={setCor} cor={cor}/>
+                    <CriarCategoria cor={cor}/>
                     {estadoButonCriar && <button className="btn-criar-tarefa" onClick={handleClick}>Criar tarefa</button>}
                     {!estadoButonCriar && <button className="btn-criar-desable" onClick={handleClick} disabled>Criar tarefa</button>}
                 </div>

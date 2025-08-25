@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react"
 // import logoMudarCor from "../icones/mudar_cor.svg"
 import "./MudarCor.css"
+import { usePaletaCores } from "../../hooks/usePaletaCores"
 
 export const MudarCor = ({ setCor, cor }) => {
   
