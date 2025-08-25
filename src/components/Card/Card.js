@@ -3,17 +3,15 @@ import MudarCor from "../CriarCard/MudarCor"
 import { useState, useRef, useEffect } from "react"
 
 
-const Card = (props) => {
+const Card = ({titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria}) => {
     const [cor, setCor] = useState("")
     const cardRef = useRef(null)
     const [estadoCheck, setEstadoCheck] = useState(false)
 
     useEffect(() => {
-        setCor(props.corDeCriacao)
+        setCor(corDeCriacao)
 
-        console.log(cardRef.current)
-
-    }, [props.corDeCriacao])
+    }, [corDeCriacao])
 
     //Design patern Strategy para reduzir ifs feiosos
     const paletaCores = {
@@ -64,12 +62,12 @@ const Card = (props) => {
         } catch {
             console.log("deu erro ao mudar cor")
         }
-    }, [cor])
+    }, [cor, paletaCores])
 
 
 
     const deletarCard = () => {
-        props.removerTarefa(props.id)
+        removerTarefa(id)
     }
 
     const handleCheck = () => {
@@ -86,15 +84,15 @@ const Card = (props) => {
         <>
             <div className='card' ref={cardRef}>
                 <div className={estadoCheck ? 'card_head_check' : 'card-head'}>
-                    <h1>{props.titulo}</h1>
+                    <h1>{titulo}</h1>
                     <input type="checkbox" className="checkbox-redondo" onClick={handleCheck}/>
                 </div>
                 <div className={estadoCheck ? 'card-text-check' : 'card-text'}>
-                    <p>{props.subtitulo}</p>
+                    <p>{subtitulo}</p>
                 </div>
                 <div className='card-bottom'>
                     <div className='card-left'>
-                        <span className='card-tag'><p>Categoria</p></span>
+                        <span className='card-tag'><p>{categoria}</p></span>
                         {estadoCheck ? (
                             <></>
                         ) : (

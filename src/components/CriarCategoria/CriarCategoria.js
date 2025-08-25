@@ -3,11 +3,10 @@ import "./CriarCategoria.css"
 import { useState, useRef, useEffect } from "react"
 
 
-const CriarCategoria = ({cor}) => {
+const CriarCategoria = ({cor, setCategoria, categoria}) => {
   const [estadoVisible, setEstadoVisible] = useState(false)
   const refCategorias = useRef(null)
-  const [valorCategoria, setValorCategoria] = useState("")
-
+  console.log(categoria)
   const paletaCores = {
     "cor-1": () => {
       refCategorias.current.style.setProperty("--cor-contraste-categ", "#D4A360");
@@ -63,7 +62,7 @@ const CriarCategoria = ({cor}) => {
 
 
   const handleCategoria = (e) => {
-    setValorCategoria(e.target.value)
+    setCategoria(e.target.value)
     setEstadoVisible(true)
 
     if (e.target.value.length > 3) {
@@ -75,15 +74,15 @@ const CriarCategoria = ({cor}) => {
   return (
     <div>
       <div className="categorias-salvas" ref={refCategorias}>
-        <input className="categoria" type="text" placeholder="categoria" onChange={handleCategoria} value={valorCategoria} />
+        <input className="categoria" type="text" placeholder="categoria" onChange={handleCategoria} value={categoria} />
         <div
           className={estadoVisible ? "categorias-salvas-visible" : "recomendations-categoria"}
           onClick={() => { setEstadoVisible(false) }}
         >
-          <li onClick={() => setValorCategoria("Treino")}>Treino</li>
-          <li onClick={() => setValorCategoria("Trabalho")}>Trabalho</li>
-          <li onClick={() => setValorCategoria("Estudos")}>Estudos</li>
-          <li onClick={() => setValorCategoria("Social")}>Social</li>
+          <li onClick={() => setCategoria("Treino")}>Treino</li>
+          <li onClick={() => setCategoria("Trabalho")}>Trabalho</li>
+          <li onClick={() => setCategoria("Estudos")}>Estudos</li>
+          <li onClick={() => setCategoria("Social")}>Social</li>
         </div>
       </div>
     </div>

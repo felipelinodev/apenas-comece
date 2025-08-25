@@ -33,7 +33,7 @@ function App() {
     console.log(`Card deletado: ${id}`)
   }
 
-
+  console.log(dados)
 
   return (
     <div className="App">
@@ -46,7 +46,7 @@ function App() {
             <>
               {comecoDeDigito !== "" && !seAlgumCardCriou ? (
                 <>
-                   <CriarCard setTdados={setTdados} comecoDeDigito={comecoDeDigito} />
+                   <CriarCard setTdados={setTdados} comecoDeDigito={comecoDeDigito}/>
                    <CaixaDeCards>
                     {cards.map((tarefa) => (
                       <Card
@@ -56,7 +56,9 @@ function App() {
                         titulo={tarefa.titulo}
                         subtitulo={tarefa.subtitulo}
                         corDeCriacao={tarefa.cor}
+                        categoria={tarefa.categoria}
                          />
+                        
                     ))}
                   </CaixaDeCards>
                 </>
@@ -71,7 +73,8 @@ function App() {
                         removerTarefa={removerTarefa}
                         titulo={tarefa.titulo}
                         subtitulo={tarefa.subtitulo}
-                        corDeCriacao={tarefa.cor} />
+                        corDeCriacao={tarefa.cor}
+                        categoria={tarefa.categoria} />
                     ))}
                   </CaixaDeCards>
                 </>

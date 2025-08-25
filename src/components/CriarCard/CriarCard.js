@@ -83,7 +83,9 @@ export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => 
     const refTitulo = useRef()
 
     const [subtitulo, setSubtitulo] = useState("")
+    const [categoria, setCategoria] = useState("")
 
+    console.log(` CRIAR CARD -> ${categoria}`)
 
     const handleInputTitulo = (event) => {
         setTitulo(event.target.value)
@@ -113,6 +115,7 @@ export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => 
             subtitulo,
             cor,
             id: novoId,
+            categoria,
         })
 
         setTitulo("")
@@ -142,7 +145,7 @@ export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => 
                 <span className="textarea-descricao-card" contentEditable onInput={handleInputDescricao}></span>
                 <div className="bottom-card-criar">
                     {/* <span className='tag-card-criar'><p>Categoria</p></span> */}
-                    <CriarCategoria cor={cor}/>
+                    <CriarCategoria cor={cor} setCategoria={setCategoria} categoria={categoria}/>
                     {estadoButonCriar && <button className="btn-criar-tarefa" onClick={handleClick}>Criar tarefa</button>}
                     {!estadoButonCriar && <button className="btn-criar-desable" onClick={handleClick} disabled>Criar tarefa</button>}
                 </div>
