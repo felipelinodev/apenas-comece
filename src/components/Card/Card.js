@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
 
-const Card = ({titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria}) => {
+const Card = ({titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, setidCardDubleClicado}) => {
     const [cor, setCor] = useState("")
     const cardRef = useRef(null)
     const [estadoCheck, setEstadoCheck] = useState(false)
@@ -64,7 +64,6 @@ const Card = ({titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria}) =
         try {
             paletaCores[cor]()
         } catch {
-            console.log("deu erro ao mudar cor")
         }
     }, [cor, paletaCores])
 
@@ -76,13 +75,12 @@ const Card = ({titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria}) =
 
     const handleCheck = () => {
         // Quando eu checar, muda as classes daquele card em especifico
-        console.log("Card concluido")
         setEstadoCheck(!estadoCheck)
 
     }
 
     const handleDoubleClick = () => {
-        console.log(`Dobro Clicou ${id}`)
+        setidCardDubleClicado(id)
         navigate("/edit")
         
     }
