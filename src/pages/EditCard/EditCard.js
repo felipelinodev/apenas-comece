@@ -1,10 +1,13 @@
 import "./EditCard.css"
 import MudarCor from "./MudarCor"
+import CriarCategoria from "../../components/CriarCategoria/CriarCategoria"
+
+
 import { useEffect, useState, useRef, useMemo } from "react"
 import { useNavigate } from "react-router-dom"
 
 
-export const EditCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => {
+export const EditCard = () => {
 
     const navigate = useNavigate()
 
@@ -12,8 +15,6 @@ export const EditCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => {
 
     const [cor, setCor] = useState("cor-5")
     const criarCardRef = useRef(null)
-
-   
 
 
     //Design patern Strategy para reduzir ifs feiosos
@@ -63,8 +64,6 @@ export const EditCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => {
 
     }), [])
         
-        
-    
 
     useEffect(() => {
         try {
@@ -80,7 +79,7 @@ export const EditCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => {
     const refTitulo = useRef()
 
     const [subtitulo, setSubtitulo] = useState("")
-
+    const [categoria, setCategoria] = useState("")
 
     const handleInputTitulo = (event) => {
         setTitulo(event.target.value)
@@ -92,29 +91,23 @@ export const EditCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => {
     }
 
     
-    useEffect(() => {
-        if(comecoDeDigito !== ""){
-            setTitulo(comecoDeDigito)
-            refTitulo.current.focus() 
-        }
-    }, [comecoDeDigito])
-
 
 
     const handleClick = (event) => {
-        const novoId = id + Math.floor(Math.random() * 100)
+        const novoId = id + Math.floor(Math.random() * 50)
 
         setId(novoId)
-        setTdados({
-            titulo,
-            subtitulo,
-            cor,
-            id: novoId,
-        })
+        // setTdados({
+        //     titulo,
+        //     subtitulo,
+        //     cor,
+        //     id: novoId,
+        //     categoria,
+        // })
 
         setTitulo("")
         setSubtitulo("")
-        setSeAlgumCardCriou(true)
+        // setSeAlgumCardCriou(true)
         navigate("/cards")
         event.preventDefault()
     }
@@ -128,6 +121,9 @@ export const EditCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => {
         }
     }, [titulo])
 
+    // Pegar ID doubleclicado e editar ele
+
+
     return (
         <div ref={criarCardRef} className="container-card-criar">
             <form>
@@ -138,7 +134,8 @@ export const EditCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => {
                 </div>
                 <span className="textarea-descricao-card" contentEditable onInput={handleInputDescricao}></span>
                 <div className="bottom-card-criar">
-                    <span className='tag-card-criar'><p>Faculdade</p></span>
+                    {/* <span className='tag-card-criar'><p>Categoria</p></span> */}
+                    <CriarCategoria cor={cor} setCategoria={setCategoria} categoria={categoria}/>
                     {estadoButonCriar && <button className="btn-criar-tarefa" onClick={handleClick}>Criar tarefa</button>}
                     {!estadoButonCriar && <button className="btn-criar-desable" onClick={handleClick} disabled>Criar tarefa</button>}
                 </div>

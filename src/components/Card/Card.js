@@ -1,12 +1,16 @@
 import "./Card.css"
 import MudarCor from "../CriarCard/MudarCor"
 import { useState, useRef, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 
 const Card = ({titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria}) => {
     const [cor, setCor] = useState("")
     const cardRef = useRef(null)
     const [estadoCheck, setEstadoCheck] = useState(false)
+
+    const navigate = useNavigate()
+
 
     useEffect(() => {
         setCor(corDeCriacao)
@@ -77,12 +81,18 @@ const Card = ({titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria}) =
 
     }
 
+    const handleDoubleClick = () => {
+        console.log(`Dobro Clicou ${id}`)
+        navigate("/edit")
+        
+    }
+
 
 
 
     return (
         <>
-            <div className='card' ref={cardRef}>
+            <div className='card' ref={cardRef} onDoubleClick={handleDoubleClick}>
                 <div className={estadoCheck ? 'card_head_check' : 'card-head'}>
                     <h1>{titulo}</h1>
                     <input type="checkbox" className="checkbox-redondo" onClick={handleCheck}/>
