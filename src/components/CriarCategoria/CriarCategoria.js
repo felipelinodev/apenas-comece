@@ -6,6 +6,7 @@ import { useState, useRef, useEffect } from "react"
 const CriarCategoria = ({cor, setCategoria, categoria}) => {
   const [estadoVisible, setEstadoVisible] = useState(false)
   const refCategorias = useRef(null)
+
   console.log(categoria)
   const paletaCores = {
     "cor-1": () => {
@@ -71,13 +72,14 @@ const CriarCategoria = ({cor, setCategoria, categoria}) => {
   }
 
 
+
   return (
     <div>
       <div className="categorias-salvas" ref={refCategorias}>
         <input className="categoria" type="text" placeholder="categoria" onChange={handleCategoria} value={categoria} />
         <div
           className={estadoVisible ? "categorias-salvas-visible" : "recomendations-categoria"}
-          onClick={() => { setEstadoVisible(false) }}
+          onClick={() => { setEstadoVisible(false) }}          
         >
           <li onClick={() => setCategoria("Treino")}>Treino</li>
           <li onClick={() => setCategoria("Trabalho")}>Trabalho</li>

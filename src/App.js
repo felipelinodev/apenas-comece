@@ -20,6 +20,7 @@ function App() {
 
   const [comecoDeDigito, setComecoDeDigito] = useState()
 
+  const [idCardDubleClicado, setidCardDubleClicado] = useState()
 
   useEffect(() => {
     if (Object.keys(dados).length > 0) {
@@ -81,7 +82,7 @@ function App() {
               )}
             </>
           } />
-          <Route path='/edit' element={<EditCard cards={cards} />} />
+          <Route path='/edit' element={<EditCard cards={cards}/>} />
           <Route path='/criar_card' element={<CriarCard setTdados={setTdados} comecoDeDigito={comecoDeDigito}  setSeAlgumCardCriou={setSeAlgumCardCriou}/>} />
         </Routes>
       </BrowserRouter>

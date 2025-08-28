@@ -85,8 +85,6 @@ export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => 
     const [subtitulo, setSubtitulo] = useState("")
     const [categoria, setCategoria] = useState("")
 
-    console.log(` CRIAR CARD -> ${categoria}`)
-
     const handleInputTitulo = (event) => {
         setTitulo(event.target.value)
         setEstadoButonCriar(true)
