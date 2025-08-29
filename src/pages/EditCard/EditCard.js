@@ -163,14 +163,14 @@ const EditCard = ({ cards, setCards, idCardDubleClicado }) => {
     }, [titulo])
     
     return (
-        <div ref={criarCardRef} className="container-card-criar">
+        <div ref={criarCardRef} className="container-card-ediar">
             <form>
                 <div className='head-card-criar'>
                     <input type="text" placeholder="Titulo" onChange={handleInputTitulo} ref={refTitulo} value={titulo} />
                     <MudarCor setCor={setCor} cor={cor} />
 
                 </div>
-                <span className="textarea-descricao-card" contentEditable onInput={handleInputDescricao}>{subtituloEdit != "" ? subtituloEdit : null}</span>
+                <span className="textarea-descricao-editar" contentEditable onInput={handleInputDescricao}>{subtituloEdit != "" ? subtituloEdit : null}</span>
                 <div className="bottom-card-criar">
                     {/* <span className='tag-card-criar'><p>Categoria</p></span> */}
                     <CriarCategoria cor={cor} setCategoria={setCategoria} categoria={categoria} />
