@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
 
-const Card = ({titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria}) => {
+const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, setidCardDubleClicado }) => {
     const [cor, setCor] = useState("")
     const cardRef = useRef(null)
     const [estadoCheck, setEstadoCheck] = useState(false)
@@ -64,7 +64,6 @@ const Card = ({titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria}) =
         try {
             paletaCores[cor]()
         } catch {
-            console.log("deu erro ao mudar cor")
         }
     }, [cor, paletaCores])
 
@@ -76,15 +75,15 @@ const Card = ({titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria}) =
 
     const handleCheck = () => {
         // Quando eu checar, muda as classes daquele card em especifico
-        console.log("Card concluido")
         setEstadoCheck(!estadoCheck)
 
     }
 
     const handleDoubleClick = () => {
-        console.log(`Dobro Clicou ${id}`)
-        navigate("/edit")
-        
+        if (!estadoCheck) {
+            setidCardDubleClicado(id)
+            navigate("/edit")
+        }
     }
 
 
@@ -95,7 +94,7 @@ const Card = ({titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria}) =
             <div className='card' ref={cardRef} onDoubleClick={handleDoubleClick}>
                 <div className={estadoCheck ? 'card_head_check' : 'card-head'}>
                     <h1>{titulo}</h1>
-                    <input type="checkbox" className="checkbox-redondo" onClick={handleCheck}/>
+                    <input type="checkbox" className="checkbox-redondo" onClick={handleCheck} />
                 </div>
                 <div className={estadoCheck ? 'card-text-check' : 'card-text'}>
                     <p>{subtitulo}</p>
@@ -109,8 +108,8 @@ const Card = ({titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria}) =
                             <>
                                 <MudarCor setCor={setCor} cor={cor} />
                             </>
-                        ) }
-                        
+                        )}
+
                     </div>
                     <div className='card-delete-bottom' onClick={deletarCard}>
                         <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">

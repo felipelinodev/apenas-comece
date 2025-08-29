@@ -20,7 +20,7 @@ function App() {
 
   const [comecoDeDigito, setComecoDeDigito] = useState()
 
-  const [idCardDubleClicado, setidCardDubleClicado] = useState()
+  const [idCardDubleClicado, setidCardDubleClicado] = useState(0)
 
   useEffect(() => {
     if (Object.keys(dados).length > 0) {
@@ -31,10 +31,14 @@ function App() {
 
   const removerTarefa = (id) => {
     setCards((prevState) => prevState.filter((card) => card.id !== id))
-    console.log(`Card deletado: ${id}`)
   }
 
-  console.log(dados)
+  cards.map((a) => {
+    if(a.id === 16){
+      console.log("CONFERINDO SE MUDOU")
+      console.log(a)
+    }
+  })
 
   return (
     <div className="App">
@@ -58,6 +62,7 @@ function App() {
                         subtitulo={tarefa.subtitulo}
                         corDeCriacao={tarefa.cor}
                         categoria={tarefa.categoria}
+                        setidCardDubleClicado={setidCardDubleClicado}
                          />
                         
                     ))}
@@ -75,14 +80,15 @@ function App() {
                         titulo={tarefa.titulo}
                         subtitulo={tarefa.subtitulo}
                         corDeCriacao={tarefa.cor}
-                        categoria={tarefa.categoria} />
+                        categoria={tarefa.categoria}
+                        setidCardDubleClicado={setidCardDubleClicado} />
                     ))}
                   </CaixaDeCards>
                 </>
               )}
             </>
           } />
-          <Route path='/edit' element={<EditCard cards={cards}/>} />
+          <Route path='/edit' element={<EditCard cards={cards} idCardDubleClicado={idCardDubleClicado} setCards={setCards}/>} />
           <Route path='/criar_card' element={<CriarCard setTdados={setTdados} comecoDeDigito={comecoDeDigito}  setSeAlgumCardCriou={setSeAlgumCardCriou}/>} />
         </Routes>
       </BrowserRouter>

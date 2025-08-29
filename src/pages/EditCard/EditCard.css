@@ -1,6 +1,6 @@
 
 
-.container-card-criar{
+.container-card-{
     --cor-contraste-criar-card: "#AA938B";
     --cor-media-criar-card: "#C4B4AD";
     --cor-base-criar-card: "#F5EBE6";
@@ -143,7 +143,6 @@
     font-style: bold;
     background-color: var(--cor-clara-escura);
 }
-
 
 
 

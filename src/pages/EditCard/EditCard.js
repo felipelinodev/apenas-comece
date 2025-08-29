@@ -4,10 +4,13 @@ import CriarCategoria from "../../components/CriarCategoria/CriarCategoria"
 
 
 import { useEffect, useState, useRef, useMemo } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 
 
-export const EditCard = () => {
+const EditCard = ({ cards, setCards, idCardDubleClicado }) => {
+
+
+    const id_card_edit = idCardDubleClicado
 
     const navigate = useNavigate()
 
@@ -15,6 +18,7 @@ export const EditCard = () => {
 
     const [cor, setCor] = useState("cor-5")
     const criarCardRef = useRef(null)
+
 
 
     //Design patern Strategy para reduzir ifs feiosos
@@ -63,23 +67,55 @@ export const EditCard = () => {
 
 
     }), [])
-        
+
 
     useEffect(() => {
         try {
             paletaCores[cor]()
         } catch {
-            console.log("deu erro ao mudar cor")
         }
     }, [cor, paletaCores])
 
 
     const [estadoButonCriar, setEstadoButonCriar] = useState(false)
     const [titulo, setTitulo] = useState("")
+
     const refTitulo = useRef()
 
     const [subtitulo, setSubtitulo] = useState("")
+    const [subtituloEdit, setSubtituloEdit] = useState("")
     const [categoria, setCategoria] = useState("")
+
+    const [editCardClicado, setEditCardClicado] = useState(false)
+    const localizacaoPagina = useLocation().pathname
+
+
+    useEffect(() => {
+        cards.map((tarefa) => {
+            if (tarefa.id === id_card_edit) {
+                setCor(tarefa.cor)
+                setTitulo(tarefa.titulo)
+                setCategoria(tarefa.categoria)
+                setSubtituloEdit(tarefa.subtitulo)
+            }
+        })
+    }, [])
+
+
+    useEffect(() => {
+        const handdleDoubleClick = () => {
+            if(!editCardClicado){
+                navigate("/cards")}
+        }
+
+        document.addEventListener("dblclick", handdleDoubleClick)
+        
+        return () => {
+            document.removeEventListener("dblclick", handdleDoubleClick)
+        }
+
+    }, [navigate])
+
 
     const handleInputTitulo = (event) => {
         setTitulo(event.target.value)
@@ -90,26 +126,31 @@ export const EditCard = () => {
         setSubtitulo(event.target.textContent)
     }
 
-    
 
 
-    const handleClick = (event) => {
-        const novoId = id + Math.floor(Math.random() * 50)
 
-        setId(novoId)
-        // setTdados({
-        //     titulo,
-        //     subtitulo,
-        //     cor,
-        //     id: novoId,
-        //     categoria,
-        // })
-
-        setTitulo("")
-        setSubtitulo("")
-        // setSeAlgumCardCriou(true)
-        navigate("/cards")
+    const handleSave = (event) => {
         event.preventDefault()
+        if (!setCards) {
+            console.error("A função setCards não foi passada como prop para EditCard!");
+            return;
+        }
+
+        const updatedCards = cards.map((tarefa) => {
+            if (tarefa.id === idCardDubleClicado) {
+                return {
+                    ...tarefa,
+                    titulo,
+                    subtitulo,
+                    cor,
+                    categoria,
+                }
+            }
+            return tarefa
+        })
+
+        setCards(updatedCards)
+        navigate("/cards")
     }
 
 
@@ -120,24 +161,21 @@ export const EditCard = () => {
             setEstadoButonCriar(true)
         }
     }, [titulo])
-
-    // Pegar ID doubleclicado e editar ele
-
-
+    
     return (
         <div ref={criarCardRef} className="container-card-criar">
             <form>
                 <div className='head-card-criar'>
-                    <input type="text" placeholder="Titulo" onChange={handleInputTitulo} ref={refTitulo} value={titulo}/>
+                    <input type="text" placeholder="Titulo" onChange={handleInputTitulo} ref={refTitulo} value={titulo} />
                     <MudarCor setCor={setCor} cor={cor} />
 
                 </div>
-                <span className="textarea-descricao-card" contentEditable onInput={handleInputDescricao}></span>
+                <span className="textarea-descricao-card" contentEditable onInput={handleInputDescricao}>{subtituloEdit != "" ? subtituloEdit : null}</span>
                 <div className="bottom-card-criar">
                     {/* <span className='tag-card-criar'><p>Categoria</p></span> */}
-                    <CriarCategoria cor={cor} setCategoria={setCategoria} categoria={categoria}/>
-                    {estadoButonCriar && <button className="btn-criar-tarefa" onClick={handleClick}>Criar tarefa</button>}
-                    {!estadoButonCriar && <button className="btn-criar-desable" onClick={handleClick} disabled>Criar tarefa</button>}
+                    <CriarCategoria cor={cor} setCategoria={setCategoria} categoria={categoria} />
+                    {estadoButonCriar && <button className="btn-criar-tarefa" onClick={handleSave}>Editar</button>}
+                    {!estadoButonCriar && <button className="btn-criar-desable" onClick={handleSave} disabled>Editar</button>}
                 </div>
             </form>
         </div>
