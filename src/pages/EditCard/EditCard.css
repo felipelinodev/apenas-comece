@@ -13,12 +13,17 @@
     min-height: 235px;
 
     position: absolute;
-    top: 25vh;
+    top: 27vh;
     
     background-color: var(--cor-base-criar-card);
 
+    border: solid, 1.5px var(--cor-media-criar-card);
+
     border-radius: 15px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, .1);}
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, .1);
+
+
+}
 
 
 .container-card-{

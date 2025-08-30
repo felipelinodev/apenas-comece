@@ -2,7 +2,7 @@
     background-color: transparent;
     width: 100%;
 
-    max-height: 69.5vh /* 500px */;
+    max-height: 72.5vh /* 500px */;
     padding: 10px;
     overflow-y: auto; /* Apenas barra de rolagem vertical, se necessário */
     overflow-x: hidden; /* Opcional: Esconde qualquer rolagem horizontal */
