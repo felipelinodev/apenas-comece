@@ -4,7 +4,7 @@ import CriarCategoria from "../../components/CriarCategoria/CriarCategoria"
 
 
 import { useEffect, useState, useRef, useMemo } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 
 
 const EditCard = ({ cards, setCards, idCardDubleClicado }) => {
@@ -86,6 +86,8 @@ const EditCard = ({ cards, setCards, idCardDubleClicado }) => {
     const [subtituloEdit, setSubtituloEdit] = useState("")
     const [categoria, setCategoria] = useState("")
 
+    const [editCardClicado, setEditCardClicado] = useState(false)
+    const localizacaoPagina = useLocation().pathname
 
 
 
@@ -101,12 +103,19 @@ const EditCard = ({ cards, setCards, idCardDubleClicado }) => {
     }, [])
 
 
+    useEffect(() => {
+        const handdleDoubleClick = () => {
+            if(!editCardClicado){
+                navigate("/cards")}
+        }
 
+        document.addEventListener("dblclick", handdleDoubleClick)
+        
+        return () => {
+            document.removeEventListener("dblclick", handdleDoubleClick)
+        }
 
-
-
-
-
+    }, [navigate])
 
 
     const handleInputTitulo = (event) => {
@@ -154,21 +163,21 @@ const EditCard = ({ cards, setCards, idCardDubleClicado }) => {
         }
     }, [titulo])
 
-
     return (
-        <div ref={criarCardRef} className="container-card-criar">
+        <div ref={criarCardRef} className="container-card-ediar">
             <form>
                 <div className='head-card-criar'>
                     <input type="text" placeholder="Titulo" onChange={handleInputTitulo} ref={refTitulo} value={titulo} />
                     <MudarCor setCor={setCor} cor={cor} />
 
                 </div>
-                <span className="textarea-descricao-card" contentEditable onInput={handleInputDescricao}>{subtituloEdit != "" ? subtituloEdit : null}</span>
+                <span className="textarea-descricao-editar" contentEditable onInput={handleInputDescricao}>{subtituloEdit != "" ? subtituloEdit : null}</span>
                 <div className="bottom-card-criar">
                     {/* <span className='tag-card-criar'><p>Categoria</p></span> */}
                     <CriarCategoria cor={cor} setCategoria={setCategoria} categoria={categoria} />
-                    {estadoButonCriar && <button className="btn-criar-tarefa" onClick={handleSave}>Criar tarefa</button>}
-                    {!estadoButonCriar && <button className="btn-criar-desable" onClick={handleSave} disabled>Criar tarefa</button>}
+                    {estadoButonCriar && <button className="btn-criar-tarefa" onClick={handleSave}>Editar</button>}
+                    {!estadoButonCriar && <button className="btn-criar-desable" onClick={handleSave} disabled>Editar</button>}
+
                 </div>
             </form>
         </div>

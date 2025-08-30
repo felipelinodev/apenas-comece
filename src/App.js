@@ -51,8 +51,8 @@ function App() {
             <>
               {comecoDeDigito !== "" && !seAlgumCardCriou ? (
                 <>
-                   <CriarCard setTdados={setTdados} comecoDeDigito={comecoDeDigito}/>
-                   <CaixaDeCards>
+                  <CriarCard setTdados={setTdados} comecoDeDigito={comecoDeDigito} />
+                  <CaixaDeCards>
                     {cards.map((tarefa) => (
                       <Card
                         id={tarefa.id}
@@ -63,8 +63,8 @@ function App() {
                         corDeCriacao={tarefa.cor}
                         categoria={tarefa.categoria}
                         setidCardDubleClicado={setidCardDubleClicado}
-                         />
-                        
+                      />
+
                     ))}
                   </CaixaDeCards>
                 </>
@@ -88,8 +88,28 @@ function App() {
               )}
             </>
           } />
-          <Route path='/edit' element={<EditCard cards={cards} idCardDubleClicado={idCardDubleClicado} setCards={setCards}/>} />
+          <Route path='/edit' element={
+            <>
+              <EditCard cards={cards} idCardDubleClicado={idCardDubleClicado} setCards={setCards} />
+              <CaixaDeCards>
+                    {cards.map((tarefa) => (
+                      <Card
+                        id={tarefa.id}
+                        key={tarefa.id}
+                        removerTarefa={removerTarefa}
+                        titulo={tarefa.titulo}
+                        subtitulo={tarefa.subtitulo}
+                        corDeCriacao={tarefa.cor}
+                        categoria={tarefa.categoria}
+                        setidCardDubleClicado={setidCardDubleClicado} />
+                    ))}
+                  </CaixaDeCards>
+            </>
+          } />
+          <Route path='/criar_card' element={<CriarCard setTdados={setTdados} comecoDeDigito={comecoDeDigito} setSeAlgumCardCriou={setSeAlgumCardCriou} />} />
+
           <Route path='/criar_card' element={<CriarCard setTdados={setTdados} comecoDeDigito={comecoDeDigito}  setSeAlgumCardCriou={setSeAlgumCardCriou}/>} />
+
         </Routes>
       </BrowserRouter>
     </div>
