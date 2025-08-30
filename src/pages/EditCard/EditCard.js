@@ -90,6 +90,7 @@ const EditCard = ({ cards, setCards, idCardDubleClicado }) => {
     const localizacaoPagina = useLocation().pathname
 
 
+
     useEffect(() => {
         cards.map((tarefa) => {
             if (tarefa.id === id_card_edit) {
@@ -161,7 +162,7 @@ const EditCard = ({ cards, setCards, idCardDubleClicado }) => {
             setEstadoButonCriar(true)
         }
     }, [titulo])
-    
+
     return (
         <div ref={criarCardRef} className="container-card-ediar">
             <form>
@@ -176,6 +177,7 @@ const EditCard = ({ cards, setCards, idCardDubleClicado }) => {
                     <CriarCategoria cor={cor} setCategoria={setCategoria} categoria={categoria} />
                     {estadoButonCriar && <button className="btn-criar-tarefa" onClick={handleSave}>Editar</button>}
                     {!estadoButonCriar && <button className="btn-criar-desable" onClick={handleSave} disabled>Editar</button>}
+
                 </div>
             </form>
         </div>

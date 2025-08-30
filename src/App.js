@@ -34,7 +34,7 @@ function App() {
   }
 
   cards.map((a) => {
-    if (a.id === 16) {
+    if(a.id === 16){
       console.log("CONFERINDO SE MUDOU")
       console.log(a)
     }
@@ -107,6 +107,9 @@ function App() {
             </>
           } />
           <Route path='/criar_card' element={<CriarCard setTdados={setTdados} comecoDeDigito={comecoDeDigito} setSeAlgumCardCriou={setSeAlgumCardCriou} />} />
+
+          <Route path='/criar_card' element={<CriarCard setTdados={setTdados} comecoDeDigito={comecoDeDigito}  setSeAlgumCardCriou={setSeAlgumCardCriou}/>} />
+
         </Routes>
       </BrowserRouter>
     </div>

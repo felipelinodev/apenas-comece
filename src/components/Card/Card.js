@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom"
 
 
 const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, setidCardDubleClicado }) => {
+
+
     const [cor, setCor] = useState("")
     const cardRef = useRef(null)
     const [estadoCheck, setEstadoCheck] = useState(false)
@@ -84,6 +86,7 @@ const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, s
             setidCardDubleClicado(id)
             navigate("/edit")
         }
+
     }
 
 
