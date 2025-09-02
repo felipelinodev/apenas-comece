@@ -1,0 +1,105 @@
+.menu-redape {
+    display: flex;
+    gap: 10px;
+    width: 495px;
+
+
+    padding: 10px 10px;
+
+    background-color: #F5EBE6;
+    border-radius: 9px;
+    margin-top: 20px;
+
+
+
+
+}
+
+
+.btn-concluidos,
+.btn-pendentes,
+.btn-deletados {
+    flex: 1;
+    display: flex;
+}
+
+
+
+.btn-concluidos button,
+.btn-pendentes button,
+.btn-deletados button {
+    width: 100%;
+    height: 37px;
+    border-radius: 9px;
+    border: solid 1.7px var(--cor-contraste);
+    color: var(--cor-contraste);
+    font-size: var(--zoom-descricao);
+    background: var(--cor-base);
+    cursor: pointer;
+
+}
+
+
+
+
+
+
+
+.btn-concluidos button>span {
+    display: inline-block;
+    background-color: var(--cor-concluidos);
+
+    border-radius: 60%;
+
+
+    width: 25px;
+
+    font-size: 16px;
+}
+
+
+.btn-concluidos button:hover {
+    background-color: var(--cor-clara-escura);
+}
+
+
+
+
+/*Cards Pendentes Estilo*/
+.btn-pendentes button>span {
+    display: inline-block;
+    background-color: var(--cor-pendentes);
+
+    border-radius: 60%;
+
+    width: 25px;
+
+    font-size: 16px;
+}
+
+
+.btn-pendentes button:hover {
+    background-color: var(--cor-clara-escura);
+}
+
+
+
+
+
+
+/*Cards deletados estilos*/
+.btn-deletados button>span {
+    display: inline-block;
+    background-color: var(--cor-deletados);
+
+    border-radius: 60%;
+
+    width: 25px;
+
+    font-size: 16px;
+}
+
+
+.btn-deletados button:hover {
+    background-color: var(--cor-clara-escura);
+}

@@ -1,5 +1,4 @@
-
-.input-campo-criar{
+.input-campo-criar {
     width: 495px;
     height: 40px;
 
@@ -17,13 +16,10 @@
     box-shadow: 0px 0px 15px rgba(0, 0, 0, .1);
 }
 
-.input-campo-criar::placeholder{
+.input-campo-criar::placeholder {
     color: #BBA69E;
 }
 
-.input-campo-criar:focus{
+.input-campo-criar:focus {
     outline-color: #AA938B;
 }
-
-
-

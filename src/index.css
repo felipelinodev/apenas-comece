@@ -1,80 +1,95 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap');
 
-:root{
-    --paragrafo-size: 1rem; 
-    --paragrafo-peso: 400;
+:root {
+  --cor-concluidos: #A8DECC;
+  --cor-pendentes: #f0dfc7;
+  --cor-deletados: #FDA99E;
 
-    --zoom-titulo-size: 1.329rem;
-    --zoom-descricao-size: 0.875rem;
+  --paragrafo-size: 1rem;
+  --paragrafo-peso: 400;
+
+  --zoom-titulo-size: 1.329rem;
+  --zoom-descricao-size: 0.875rem;
 
 
-    /*Fica veaco rapaiz, só o card de criação pode herdar isso, pegou? Você não quer mudar TODAS as cores não é
+  /*Fica veaco rapaiz, só o card de criação pode herdar isso, pegou? Você não quer mudar TODAS as cores não é
     bonitão? */
-    --cor-contraste: #AA938B;
-    --cor-media: #C4B4AD;
-    --cor-base: #F5EBE6;
-    --cor-clara-escura: #E9D8D0;
-    --cor-clara: #FFFAF8;
+  --cor-contraste: #AA938B;
+
+  --cor-media: #C4B4AD;
+  --cor-base: #F5EBE6;
+  --cor-clara-escura: #E9D8D0;
+  --cor-clara: #FFFAF8;
 }
 
 
 
 
 div::-webkit-scrollbar {
-  width: 10px;               /* width of the entire scrollbar */}
+  width: 10px;
+  /* width of the entire scrollbar */
+}
 
 div::-webkit-scrollbar-track {
-  background: transparent        /* color of the tracking area */}
+  background: transparent
+    /* color of the tracking area */
+}
 
 div::-webkit-scrollbar-thumb {
-  background-color: var(--cor-media);    /* color of the scroll thumb */
-  border-radius: 20px;       /* roundness of the scroll thumb */
-  /* creates padding around scroll thumb */}
-
-
-
-
-
-h1{
-    font-family: "Poppins", sans-serif;;
-    font-size: 16px;
-    font-weight: 500;
-    font-style: normal;
+  background-color: var(--cor-media);
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+  /* creates padding around scroll thumb */
 }
+
+
+
+
+
+h1 {
+  font-family: "Poppins", sans-serif;
+  ;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+}
+
 /* RESET CSS */
-*, 
+*,
 *:after,
 *:before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
 }
-body{
-    font-size: 100%;
-    list-style-type: none;
+
+body {
+  font-size: 100%;
+  list-style-type: none;
 }
 
 
 
 /*Centralizar div*/
-body{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-    height: 100vh;
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 
-html{
-   background-image: url("./images/backGroundfundo.gif"); 
-  background-size: cover;  
-  /* background: linear-gradient(0deg,rgba(233, 216, 206, 1) 0%, rgba(247, 238, 254, 1) 100%);  */
-    
+html {
+  /* background-image: url("./images/backGroundfundo.gif"); 
+  background-size: cover;   */
+  background: linear-gradient(0deg, rgba(233, 216, 206, 1) 0%, rgba(247, 238, 254, 1) 100%);
+
 }
 
-*{
-font-family: "Poppins", sans-serif;;
+* {
+  font-family: "Poppins", sans-serif;
+  ;
 }

@@ -1,5 +1,4 @@
-
-.container-card-ediar{
+.container-card-ediar {
     --cor-contraste-criar-card: "#AA938B";
     --cor-media-criar-card: "#C4B4AD";
     --cor-base-criar-card: "#F5EBE6";
@@ -13,8 +12,8 @@
     min-height: 235px;
 
     position: absolute;
-    top: 27vh;
-    
+    top: 34vh;
+
     background-color: var(--cor-base-criar-card);
 
     border: solid, 1.5px var(--cor-media-criar-card);
@@ -26,7 +25,7 @@
 }
 
 
-.container-card-{
+.container-card- {
     --cor-contraste-criar-card: "#AA938B";
     --cor-media-criar-card: "#C4B4AD";
     --cor-base-criar-card: "#F5EBE6";
@@ -45,12 +44,13 @@
 
 }
 
-.head-card-criar{
+.head-card-criar {
     display: flex;
     align-items: center;
-    justify-content: space-around;}
+    justify-content: space-around;
+}
 
-.head-card-criar input{
+.head-card-criar input {
     color: var(--cor-contraste-criar-card);
     padding: 25px;
     padding-top: 30px;
@@ -58,24 +58,27 @@
 
     width: 100%;
     height: 30px;
-    
+
     font-size: var(--zoom-titulo-size);
     background: transparent;
-    font-weight: 500;}
+    font-weight: 500;
+}
 
-.head-card-criar input::placeholder{
-    color: var(--cor-contraste-criar-card);}
+.head-card-criar input::placeholder {
+    color: var(--cor-contraste-criar-card);
+}
 
-.head-card-criar input:focus{
-    outline: none;}
+.head-card-criar input:focus {
+    outline: none;
+}
 
 
 
 
 
-.textarea-descricao-editar{
+.textarea-descricao-editar {
     width: 95%;
-    min-height:100px;
+    min-height: 100px;
     margin: 10px;
     border-radius: 9px;
     border: none;
@@ -84,20 +87,23 @@
     color: var(--cor-contraste-criar-card);
     background-color: var(--cor-clara-criar-card);
     padding: 15px;
-    
+
 
     resize: vertical;
     display: block;
-    overflow: hidden;}
+    overflow: hidden;
+}
 
-.textarea-descricao-editar[contenteditable]:empty::before{
+.textarea-descricao-editar[contenteditable]:empty::before {
     content: "Meu primeiro card...";
     font-size: var(--zoom-descricao-size);
-    color: var(--cor-contraste-criar-card);} 
+    color: var(--cor-contraste-criar-card);
+}
 
 
-.textarea-descricao-editar:focus{
-    outline: none;}
+.textarea-descricao-editar:focus {
+    outline: none;
+}
 
 
 
@@ -114,9 +120,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;}
+    padding: 10px;
+}
 
-.bottom-card-criar .tag-card-criar{
+.bottom-card-criar .tag-card-criar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,10 +137,11 @@
     font-size: var(--zoom-descricao-size);
     color: var(--cor-contraste-criar-card);
 
-    text-align: center;}
+    text-align: center;
+}
 
-.bottom-card-criar .btn-criar-tarefa{
-    
+.bottom-card-criar .btn-criar-tarefa {
+
     width: 137px;
     height: 37px;
     border-radius: 9px;
@@ -142,14 +150,16 @@
     color: var(--cor-contraste-criar-card);
     font-size: var(--zoom-descricao-size);
 
-    background: transparent;}
+    background: transparent;
+}
 
-.bottom-card-criar .btn-criar-tarefa:hover{
+.bottom-card-criar .btn-criar-tarefa:hover {
     cursor: pointer;
-    background-color: var(--cor-clara-escura-criar-card);}
+    background-color: var(--cor-clara-escura-criar-card);
+}
 
 
-.btn-criar-desable{
+.btn-criar-desable {
     width: 137px;
     height: 37px;
     border-radius: 9px;
@@ -164,7 +174,7 @@
 }
 
 
-::selection{
+::selection {
     font-weight: 700;
     font-style: bold;
     background-color: var(--cor-clara-escura);
