@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
 
-const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, setidCardDubleClicado }) => {
+const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, setidCardDubleClicado, setNumCardsLixeira, numCardsLixeira, numCardsConcluidos, setNumCardsConcluidos }) => {
 
 
     const [cor, setCor] = useState("")
@@ -73,11 +73,19 @@ const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, s
 
     const deletarCard = () => {
         removerTarefa(id)
+        setNumCardsLixeira((prevNumCardLixeira) => prevNumCardLixeira + 1)
     }
 
     const handleCheck = () => {
         // Quando eu checar, muda as classes daquele card em especifico
         setEstadoCheck(!estadoCheck)
+
+        if (!estadoCheck) {
+            setNumCardsConcluidos((prevNumCardsConcluidos) => prevNumCardsConcluidos + 1)
+        } else {
+            setNumCardsConcluidos((prevNumCardsConcluidos) => prevNumCardsConcluidos - 1)
+        }
+
 
     }
 

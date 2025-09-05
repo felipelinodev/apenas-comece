@@ -24,7 +24,7 @@ function App() {
 
   const [idCardDubleClicado, setidCardDubleClicado] = useState(0)
 
-  const [numCardsConcluidos, seNumCardsConcluidos] = useState(0)
+  const [numCardsConcluidos, setNumCardsConcluidos] = useState(0)
   const [numCardsPendentes, setNumCardsPendentes] = useState(0)
   const [numCardsLixeira, setNumCardsLixeira] = useState(0)
 
@@ -36,10 +36,14 @@ function App() {
     }
   }, [dados])
 
-
   const removerTarefa = (id) => {
     setCards((prevState) => prevState.filter((card) => card.id !== id))
   }
+
+  useEffect(() => {
+    setNumCardsPendentes(cards.length - numCardsConcluidos)
+  }, [cards, numCardsConcluidos])
+
 
   return (
     <div className="App">
@@ -62,6 +66,9 @@ function App() {
                       corDeCriacao={tarefa.cor}
                       categoria={tarefa.categoria}
                       setidCardDubleClicado={setidCardDubleClicado}
+                      numCardsLixeira={numCardsLixeira}
+                      setNumCardsConcluidos={setNumCardsConcluidos}
+                      numCardsConcluidos={numCardsConcluidos}
                     />
 
                   ))}
@@ -80,7 +87,11 @@ function App() {
                       subtitulo={tarefa.subtitulo}
                       corDeCriacao={tarefa.cor}
                       categoria={tarefa.categoria}
-                      setidCardDubleClicado={setidCardDubleClicado} />
+                      setidCardDubleClicado={setidCardDubleClicado}
+                      setNumCardsLixeira={setNumCardsLixeira}
+                      numCardsLixeira={numCardsLixeira}
+                      setNumCardsConcluidos={setNumCardsConcluidos}
+                      numCardsConcluidos={numCardsConcluidos} />
                   ))}
                 </CaixaDeCards>
               </>
@@ -100,7 +111,8 @@ function App() {
                   subtitulo={tarefa.subtitulo}
                   corDeCriacao={tarefa.cor}
                   categoria={tarefa.categoria}
-                  setidCardDubleClicado={setidCardDubleClicado} />
+                  setidCardDubleClicado={setidCardDubleClicado}
+                  setNumCardsLixeira={setNumCardsLixeira} />
               ))}
             </CaixaDeCards>
           </>
