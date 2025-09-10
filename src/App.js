@@ -11,12 +11,15 @@ import CaixaDeCards from './components/CaixaDeCards/CaixaDeCards';
 import EditCard from './pages/EditCard/EditCard';
 import EntradaCampoCriar from "./components/EntradaCampoCriar/EntradaCampoCriar"
 import Rodape from './components/RodapeTodo/Rodape';
+import TodoMenu from './components/TodoMenu/TodoMenu';
 
 function App() {
   const localizacaoPagina = useLocation().pathname
 
   const [cards, setCards] = useState([])
   const [dados, setTdados] = useState({})
+
+  const [categoriasSalvas, setCategoriasSalvas] = useState([])
 
   const [seAlgumCardCriou, setSeAlgumCardCriou] = useState(false)
 
@@ -47,7 +50,9 @@ function App() {
 
   return (
     <div className="App">
-      <Routes>
+      <TodoMenu setCategoriasSalvas={setCategoriasSalvas} categoriasSalvas={categoriasSalvas}/>
+      <div className='colum-um-app'>
+         <Routes>
         <Route path='/' element={<EntradaCampoCriar setComecoDeDigito={setComecoDeDigito} />} />
 
         <Route path='/cards' element={
@@ -128,10 +133,9 @@ function App() {
           numCardsConcluidos={numCardsConcluidos}
           numCardsPendentes={numCardsPendentes}
         />
-
         :
         null}
-
+      </div>
     </div>
   );
 }
