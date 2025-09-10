@@ -1,3 +1,8 @@
+.form-campo-criar {
+    display: flex;
+    justify-content: center;
+}
+
 .input-campo-criar {
     width: 495px;
     height: 40px;
@@ -14,6 +19,8 @@
     border: solid 5px #F5EBE6;
 
     box-shadow: 0px 0px 15px rgba(0, 0, 0, .1);
+
+
 }
 
 .input-campo-criar::placeholder {

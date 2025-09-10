@@ -57,17 +57,17 @@
     font-size: var(--zoom-descricao-size);
 
     background-color: var(--cor-clara-escura-categ);
-    
+
     border-radius: 200px;
 }
 
-.categorias-salvas li:hover{
+.categorias-salvas li:hover {
     cursor: pointer;
     background-color: var(--cor-media-categ);
 }
 
 
 
-.recomendations-categoria{
+.recomendations-categoria {
     display: none;
 }

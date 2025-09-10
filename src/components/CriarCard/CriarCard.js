@@ -7,7 +7,7 @@ import { useEffect, useState, useRef, useMemo } from "react"
 import { useNavigate } from "react-router-dom"
 
 
-export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => {
+export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou, categoriasSalvas }) => {
 
     const navigate = useNavigate()
 
@@ -16,7 +16,7 @@ export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => 
     const [cor, setCor] = useState("cor-5")
     const criarCardRef = useRef(null)
 
-   
+
 
 
     //Design patern Strategy para reduzir ifs feiosos
@@ -65,9 +65,9 @@ export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => 
 
 
     }), [])
-        
-        
-    
+
+
+
 
     useEffect(() => {
         try {
@@ -94,11 +94,11 @@ export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => 
         setSubtitulo(event.target.textContent)
     }
 
-    
+
     useEffect(() => {
-        if(comecoDeDigito !== ""){
+        if (comecoDeDigito !== "") {
             setTitulo(comecoDeDigito)
-            refTitulo.current.focus() 
+            refTitulo.current.focus()
         }
     }, [comecoDeDigito])
 
@@ -136,14 +136,14 @@ export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou}) => 
         <div ref={criarCardRef} className="container-card-criar">
             <form>
                 <div className='head-card-criar'>
-                    <input type="text" placeholder="Titulo" onChange={handleInputTitulo} ref={refTitulo} value={titulo}/>
+                    <input type="text" placeholder="Titulo" onChange={handleInputTitulo} ref={refTitulo} value={titulo} />
                     <MudarCor setCor={setCor} cor={cor} />
 
                 </div>
                 <span className="textarea-descricao-card" contentEditable onInput={handleInputDescricao}></span>
                 <div className="bottom-card-criar">
                     {/* <span className='tag-card-criar'><p>Categoria</p></span> */}
-                    <CriarCategoria cor={cor} setCategoria={setCategoria} categoria={categoria}/>
+                    <CriarCategoria cor={cor} setCategoria={setCategoria} categoria={categoria} categoriasSalvas={categoriasSalvas} />
                     {estadoButonCriar && <button className="btn-criar-tarefa" onClick={handleClick}>Criar tarefa</button>}
                     {!estadoButonCriar && <button className="btn-criar-desable" onClick={handleClick} disabled>Criar tarefa</button>}
                 </div>

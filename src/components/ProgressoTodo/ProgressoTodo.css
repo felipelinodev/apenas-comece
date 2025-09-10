@@ -1,0 +1,68 @@
+.progresso-todo {
+    width: 262px;
+    height: 208px;
+    background-color: var(--cor-clara);
+    border-radius: 30px;
+
+    padding: 10px;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+
+.barra-progresso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.progresso-todo .procentagem {
+    width: 95px;
+    height: 95px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--cor-barra-progres);
+    border-radius: 50%;
+}
+
+.progresso-todo .procentagem p {
+    font-size: 2em;
+
+}
+
+.progresso-todo .barra-progresso p {
+    font-size: var(--zoom-descricao-size);
+    color: var(--cor-barra-progres-contraste);
+    font-weight: 500;
+}
+
+.barProgress {
+    height: 15px;
+    border-radius: 40px;
+    border: none;
+    width: 200px;
+    background-color: var(--cor-base);
+    color: black;
+    padding: 5px;
+
+    display: flex;
+    align-items: center;
+}
+
+.barProgress .content-progress {
+    background-color: var(--cor-concluidos);
+    color: var(--cor-concluidos);
+
+    font-size: 5px;
+
+    border-radius: 50px;
+}

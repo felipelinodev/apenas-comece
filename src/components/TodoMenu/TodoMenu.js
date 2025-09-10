@@ -1,33 +1,77 @@
 import { useState } from "react"
+import LogoTodo from "../../icones/LOGO_OFICIAL.png"
 import "./TodoMenu.css"
+import { LampadaSvg } from "./LampadaSvg"
+import { SeloSvg } from "./SeloSvg"
+import { DeleteSvg } from "./DeleteSvg"
 
 const TodoMenu = ({ setCategoriasSalvas, categoriasSalvas }) => {
 
     const [categoria, setCategoria] = useState("")
+    const [estadoClickAddCategory, setEstadoClickAddCategory] = useState(true)
+
 
     const handleSetCategory = (e) => {
         e.preventDefault()
-        setCategoriasSalvas([...categoriasSalvas, categoria])
+        if (categoria !== "") {
+            setCategoriasSalvas([...categoriasSalvas, categoria])
+        }
+
+
+        //Mudar estado
+        setEstadoClickAddCategory(!estadoClickAddCategory)
+
+        setCategoria("")
     }
 
-    console.log(categoriasSalvas)
+    const handleRemoverItamCategoria = (nomeCateg) => {
+
+
+        setCategoriasSalvas(categoriasSalvas.filter(categoria => categoria !== nomeCateg))
+
+
+    }
+
+
     return (
 
         <div className='todo-menu'>
-            <h1>todo menu</h1>
+            <div className="logo-todo">
+                <img src={LogoTodo} alt="Logo oficial" />
+            </div>
 
             <div className="container">
                 <form className="add-categoria" onSubmit={handleSetCategory}>
-                    <input type="text" placeholder="Digite sua categoria..." onChange={(e) => setCategoria(e.target.value)} />
+                    {estadoClickAddCategory && (
+                        <div className="categ-div">
+                            <LampadaSvg />
+                            <p className="categories-label">Categorias</p>
+                        </div>)}
+                    <input className={estadoClickAddCategory ? "input-hide" : ""} type="text" placeholder="Digite sua categoria..." onChange={(e) => setCategoria(e.target.value)} value={categoria} />
+
+
                     <input type="submit" value="+" />
                 </form>
 
-                <p className="categories-label">Categorias</p>
+
 
                 <div className="lista-categoria">
-                    {categoriasSalvas.map((cat) => (
-                        <p>{cat}</p>
-                    ))}
+                    <ul>
+                        <li>
+                            {categoriasSalvas.map((cat) => (
+                                <div className="items-categ">
+                                    <div className="children-items-1">
+                                        <SeloSvg />
+                                        {cat}
+                                    </div>
+                                    <div className="delete-items" onClick={() => handleRemoverItamCategoria(cat)}>
+                                        <DeleteSvg />
+                                    </div>
+                                </div>
+                            ))}
+                        </li>
+                    </ul>
+
                 </div>
             </div>
 

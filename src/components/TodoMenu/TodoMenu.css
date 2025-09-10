@@ -1,10 +1,135 @@
-.todo-menu{
-    width: 190px;
+.todo-menu {
     background-color: var(--cor-clara);
-    border-radius: 15px;
-    padding: 20px;
+    border-radius: 20px;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.container{
-    width: 190px;
+
+.logo-todo {
+    padding: 30px;
+
+}
+
+.categ-div {
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.container {
+    background-color: var(--cor-base);
+    padding: 10px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+
+
+
+.add-categoria {
+    display: flex;
+    width: auto;
+
+    margin: 5px;
+}
+
+
+
+
+/*ADD CATEGORIA ========================================*/
+.add-categoria input[type="text"] {
+    background-color: var(--cor-base);
+
+    border: solid 1px var(--cor-contraste);
+    border-radius: 50px;
+    padding-left: 10px;
+
+    color: var(--cor-contraste);
+
+}
+
+.add-categoria input[type="text"]:focus {
+    outline-color: #AA938B;
+}
+
+
+
+
+
+.add-categoria input[type="submit"] {
+    border: none;
+
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--cor-base);
+    border: solid 1px var(--cor-contraste);
+
+    color: var(--cor-contraste);
+
+    font-size: 1em;
+    margin-left: 5px;
+
+
+}
+
+.add-categoria input[type="submit"]:hover {
+    background-color: var(--cor-clara-escura);
+}
+
+.input-hide {
+    display: none;
+}
+
+.categories-label {
+    color: var(--cor-contraste);
+    font-size: var(--paragrafo-size);
+    font-weight: var(--paragrafo-peso);
+
+    padding: 0px 64px 0px 0px;
+
+}
+
+/*ADD CATEGORIA ========================================*/
+
+
+.lista-categoria .items-categ {
+    background-color: var(--cor-clara-escura);
+    color: var(--cor-contraste);
+    padding: 16px;
+    border-radius: 50px;
+
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.lista-categoria .items-categ .children-items-1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lista-categoria .items-categ .delete-items {
+    background-color: var(--cor-clara-escura);
+    width: 25px;
+    height: 25px;
+
+    text-align: center;
+    border-radius: 50%;
+
+}
+
+.lista-categoria .items-categ .delete-items:hover {
+    cursor: pointer;
+    background-color: color-mix(in srgb, var(--cor-contraste) 30%, transparent);
 }

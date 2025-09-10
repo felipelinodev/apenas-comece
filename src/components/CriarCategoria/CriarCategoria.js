@@ -3,7 +3,7 @@ import "./CriarCategoria.css"
 import { useState, useRef, useEffect } from "react"
 
 
-const CriarCategoria = ({cor, setCategoria, categoria}) => {
+const CriarCategoria = ({ cor, setCategoria, categoria, categoriasSalvas }) => {
   const [estadoVisible, setEstadoVisible] = useState(false)
   const refCategorias = useRef(null)
 
@@ -53,13 +53,13 @@ const CriarCategoria = ({cor, setCategoria, categoria}) => {
     }
   }
 
-   useEffect(() => {
-          try {
-              paletaCores[cor]()
-          } catch {
-              console.log("deu erro ao mudar cor")
-          }
-      }, [cor, paletaCores])
+  useEffect(() => {
+    try {
+      paletaCores[cor]()
+    } catch {
+      console.log("deu erro ao mudar cor")
+    }
+  }, [cor, paletaCores])
 
 
   const handleCategoria = (e) => {
@@ -79,12 +79,11 @@ const CriarCategoria = ({cor, setCategoria, categoria}) => {
         <input className="categoria" type="text" placeholder="categoria" onChange={handleCategoria} value={categoria} />
         <div
           className={estadoVisible ? "categorias-salvas-visible" : "recomendations-categoria"}
-          onClick={() => { setEstadoVisible(false) }}          
+          onClick={() => { setEstadoVisible(false) }}
         >
-          <li onClick={() => setCategoria("Treino")}>Treino</li>
-          <li onClick={() => setCategoria("Trabalho")}>Trabalho</li>
-          <li onClick={() => setCategoria("Estudos")}>Estudos</li>
-          <li onClick={() => setCategoria("Social")}>Social</li>
+          {categoriasSalvas.map((categ) => (
+            <li onClick={() => setCategoria(categ)}>{categ}</li>
+          ))}
         </div>
       </div>
     </div>

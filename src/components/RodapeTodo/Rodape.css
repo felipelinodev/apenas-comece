@@ -1,5 +1,7 @@
 .menu-redape {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
     width: 495px;
 
@@ -11,7 +13,7 @@
     margin-top: 20px;
 
 
-
+    margin: 10px;
 
 }
 

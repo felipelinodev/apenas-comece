@@ -7,7 +7,7 @@ import { useEffect, useState, useRef, useMemo } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
 
 
-const EditCard = ({ cards, setCards, idCardDubleClicado }) => {
+const EditCard = ({ cards, setCards, idCardDubleClicado, categoriasSalvas }) => {
 
 
     const id_card_edit = idCardDubleClicado
@@ -106,12 +106,13 @@ const EditCard = ({ cards, setCards, idCardDubleClicado }) => {
 
     useEffect(() => {
         const handdleDoubleClick = () => {
-            if(!editCardClicado){
-                navigate("/cards")}
+            if (!editCardClicado) {
+                navigate("/cards")
+            }
         }
 
         document.addEventListener("dblclick", handdleDoubleClick)
-        
+
         return () => {
             document.removeEventListener("dblclick", handdleDoubleClick)
         }
@@ -129,7 +130,7 @@ const EditCard = ({ cards, setCards, idCardDubleClicado }) => {
     }
 
 
-    
+
 
     const handleSave = (event) => {
         event.preventDefault()
@@ -165,8 +166,8 @@ const EditCard = ({ cards, setCards, idCardDubleClicado }) => {
     }, [titulo])
 
 
-    
-    
+
+
     return (
         <div ref={criarCardRef} className="container-card-ediar">
             <form>
@@ -178,10 +179,10 @@ const EditCard = ({ cards, setCards, idCardDubleClicado }) => {
                 <span className="textarea-descricao-editar" contentEditable onInput={handleInputDescricao}>{subtituloEdit != "" ? subtituloEdit : null}</span>
                 <div className="bottom-card-criar">
                     {/* <span className='tag-card-criar'><p>Categoria</p></span> */}
-                    <CriarCategoria cor={cor} setCategoria={setCategoria} categoria={categoria} />
+                    <CriarCategoria cor={cor} setCategoria={setCategoria} categoria={categoria} categoriasSalvas={categoriasSalvas} />
                     {estadoButonCriar && <button className="btn-criar-tarefa" onClick={handleSave}>Editar</button>}
                     {!estadoButonCriar && <button className="btn-criar-desable" onClick={handleSave} disabled>Editar</button>}
-                    
+
                 </div>
             </form>
         </div>
