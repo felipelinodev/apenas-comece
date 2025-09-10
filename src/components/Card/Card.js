@@ -74,6 +74,11 @@ const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, s
     const deletarCard = () => {
         removerTarefa(id)
         setNumCardsLixeira((prevNumCardLixeira) => prevNumCardLixeira + 1)
+
+        if(estadoCheck){
+            setNumCardsConcluidos((prevNumCardsConcluidos) => prevNumCardsConcluidos - 1)
+        }
+
     }
 
     const handleCheck = () => {
@@ -112,7 +117,7 @@ const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, s
                 </div>
                 <div className='card-bottom'>
                     <div className='card-left'>
-                        <span className='card-tag'><p>{categoria}</p></span>
+                        <span className='card-tag'><p>{categoria === "" ? "Categoria": categoria}</p></span>
                         {estadoCheck ? (
                             <></>
                         ) : (

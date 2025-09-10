@@ -8,7 +8,7 @@ const Rodape = ({ numCardsConcluidos, numCardsPendentes, numCardsLixeira }) => {
         <div className="menu-redape">
             <div className="btn-concluidos">
                 <button>
-                    Concluidos <span>{numCardsConcluidos}</span>
+                    Concluidos <span>{numCardsConcluidos >= 0 ? numCardsConcluidos : 0}</span>
                 </button>
             </div>
 

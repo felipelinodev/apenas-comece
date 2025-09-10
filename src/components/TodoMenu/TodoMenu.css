@@ -1,0 +1,10 @@
+.todo-menu{
+    width: 190px;
+    background-color: var(--cor-clara);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.container{
+    width: 190px;
+}

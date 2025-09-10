@@ -85,6 +85,7 @@ const EditCard = ({ cards, setCards, idCardDubleClicado }) => {
     const [subtitulo, setSubtitulo] = useState("")
     const [subtituloEdit, setSubtituloEdit] = useState("")
     const [categoria, setCategoria] = useState("")
+    const [printTituo, setPrintTitulo] = useState(false)
 
     const [editCardClicado, setEditCardClicado] = useState(false)
     const localizacaoPagina = useLocation().pathname
@@ -128,7 +129,7 @@ const EditCard = ({ cards, setCards, idCardDubleClicado }) => {
     }
 
 
-
+    
 
     const handleSave = (event) => {
         event.preventDefault()
@@ -163,6 +164,9 @@ const EditCard = ({ cards, setCards, idCardDubleClicado }) => {
         }
     }, [titulo])
 
+
+    
+    
     return (
         <div ref={criarCardRef} className="container-card-ediar">
             <form>
@@ -177,7 +181,7 @@ const EditCard = ({ cards, setCards, idCardDubleClicado }) => {
                     <CriarCategoria cor={cor} setCategoria={setCategoria} categoria={categoria} />
                     {estadoButonCriar && <button className="btn-criar-tarefa" onClick={handleSave}>Editar</button>}
                     {!estadoButonCriar && <button className="btn-criar-desable" onClick={handleSave} disabled>Editar</button>}
-
+                    
                 </div>
             </form>
         </div>

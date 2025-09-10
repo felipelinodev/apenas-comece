@@ -119,9 +119,7 @@
     align-items: center;
 
     margin: 10px;
-
-
-    min-width: 100px;
+    padding: 0px 19px 0px 19px; 
     height: 28px;
     border-radius: 50px;
     background-color: var(--cor-clara-escura-card);
@@ -129,7 +127,6 @@
     font-size: var(--zoom-descricao-size);
     color: var(--cor-contraste-card);
 
-    text-align: center;
 }
 
 
