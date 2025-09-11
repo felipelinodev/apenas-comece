@@ -3,13 +3,17 @@ import "./ProgressoTodo.css"
 const ProgressoTodo = ({ numCardsConcluidos, totalCards }) => {
     const [porcetagem, setPorcetagem] = useState("")
 
-    const umDecimo = "aaaaa"
-
     useEffect(() => {
-        const numeroPorcent = Math.floor(totalCards / 5)
-        setPorcetagem(umDecimo.repeat(numeroPorcent))
-        console.log(`porcentagem É: ${porcetagem}`)
-    }, [numCardsConcluidos])
+        if(totalCards > 0){
+           const porcetagemConclusao = (numCardsConcluidos / totalCards) * 100
+
+           const valorEscalaDe10 = Math.floor(porcetagemConclusao / 10)
+
+           const stringProgresso = "aaaaa".repeat(valorEscalaDe10)
+           console.log(`string progresso ${stringProgresso}`) 
+           setPorcetagem(stringProgresso)
+        }
+    }, [numCardsConcluidos, totalCards])
 
 
     return (
@@ -21,11 +25,9 @@ const ProgressoTodo = ({ numCardsConcluidos, totalCards }) => {
                 <p>Status de progresso</p>
                 <div className="barProgress">
                     <span className="content-progress">
-                        {/* aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */}
-                        aaaaa
+                        {porcetagem}
                     </span>
                 </div>
-
             </div>
         </div>
     )
