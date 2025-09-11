@@ -105,6 +105,7 @@ export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou, cate
 
 
     const handleClick = (event) => {
+        event.preventDefault()
         const novoId = id + Math.floor(Math.random() * 50)
 
         setId(novoId)
@@ -120,7 +121,7 @@ export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou, cate
         setSubtitulo("")
         setSeAlgumCardCriou(true)
         navigate("/cards")
-        event.preventDefault()
+        
     }
 
 
