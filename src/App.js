@@ -1,7 +1,9 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"
+import { Routes, Route, useLocation } from "react-router-dom"
 
+//Funções Localstorage
+import { SalvarLocalStorage, PegarDadosLocalStorage, RemoverDadosLocalStorage } from './hooks/LocalStorageManager.js'
 
 
 //Componets
@@ -38,11 +40,30 @@ function App() {
     titulo: "Tarefa 3 – Apenas Comece",
     subtitulo: "Respire fundo, sinta-se leve e dê o primeiro passo."
   }])
+
+
+
+
+
+
+
+
+
+
+
+
+  
   const [dados, setTdados] = useState({})
 
-  console.log(cards)
 
-  const [categoriasSalvas, setCategoriasSalvas] = useState([])
+
+
+
+
+  
+
+  const [categoriasSalvas, setCategoriasSalvas] = useState(['Começo'])
+
 
   const [seAlgumCardCriou, setSeAlgumCardCriou] = useState(false)
 
