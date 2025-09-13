@@ -14,9 +14,13 @@ import Rodape from './components/RodapeTodo/Rodape';
 import TodoMenu from './components/TodoMenu/TodoMenu';
 import ProgressoTodo from './components/ProgressoTodo/ProgressoTodo';
 
+//CustomHooks
+import { SalvarLocalStorage, PegarDadosLocalStorage, RemoverDadosLocalStorage, } from "./hooks/LocalStorageManager"
+
 function App() {
   const localizacaoPagina = useLocation().pathname
 
+  // States 
   const [cards, setCards] = useState([{
     id: 1,
     categoria: "Começo",
@@ -40,8 +44,6 @@ function App() {
   }])
   const [dados, setTdados] = useState({})
 
-  console.log(cards)
-
   const [categoriasSalvas, setCategoriasSalvas] = useState([])
 
   const [seAlgumCardCriou, setSeAlgumCardCriou] = useState(false)
@@ -53,6 +55,7 @@ function App() {
   const [numCardsConcluidos, setNumCardsConcluidos] = useState(0)
   const [numCardsPendentes, setNumCardsPendentes] = useState(0)
   const [numCardsLixeira, setNumCardsLixeira] = useState(0)
+
 
 
   useEffect(() => {
@@ -69,6 +72,24 @@ function App() {
   useEffect(() => {
     setNumCardsPendentes(cards.length - numCardsConcluidos)
   }, [cards, numCardsConcluidos])
+
+
+
+  // Carregar dados só uma vez na montagem
+  useEffect(() => {
+    const dadosSalvos = PegarDadosLocalStorage("todosCards")
+    if (dadosSalvos) {
+      setCards(dadosSalvos)
+    }
+  }, [])
+
+  // Sempre que cards mudar, salvar no localStorage
+  useEffect(() => {
+    SalvarLocalStorage(cards, categoriasSalvas)
+  }, [cards, categoriasSalvas])
+
+
+
 
 
   return (

@@ -130,7 +130,7 @@ export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou, cate
         <div ref={criarCardRef} className="container-card-criar">
             <form>
                 <div className='head-card-criar'>
-                    <input type="text" placeholder="Titulo" onChange={handleInputTitulo} ref={refTitulo} value={titulo} />
+                    <input type="text" placeholder="Titulo" onChange={handleInputTitulo} ref={refTitulo} value={titulo} className="titulo-criar-card" />
                     <MudarCor setCor={setCor} cor={cor} />
 
                 </div>

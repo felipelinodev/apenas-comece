@@ -75,7 +75,7 @@ const CriarCategoria = ({ cor, setCategoria, categoria, categoriasSalvas }) => {
 
   return (
     <div>
-      <div className="categorias-salvas" ref={refCategorias}>
+      <div className="categorias-salvas pai-categ" ref={refCategorias}>
         <input className="categoria" type="text" placeholder="categoria" onChange={handleCategoria} value={categoria} />
         <div
           className={estadoVisible ? "categorias-salvas-visible" : "recomendations-categoria"}

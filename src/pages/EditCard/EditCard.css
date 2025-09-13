@@ -1,9 +1,9 @@
 .container-card-ediar {
-    --cor-contraste-criar-card: "#AA938B";
-    --cor-media-criar-card: "#C4B4AD";
-    --cor-base-criar-card: "#F5EBE6";
-    --cor-clara-escura-criar-card: "#E9D8D0";
-    --cor-clara-criar-card: "#FFFAF8";
+    --cor-contraste-editar-card: "#AA938B";
+    --cor-media-editar-card: "#C4B4AD";
+    --cor-base-editar-card: "#F5EBE6";
+    --cor-clara-escura-editar-card: "#E9D8D0";
+    --cor-clara-editar-card: "#FFFAF8";
 
 
     margin-top: 10px;
@@ -14,9 +14,9 @@
     position: absolute;
     top: 34vh;
 
-    background-color: var(--cor-base-criar-card);
+    background-color: var(--cor-base-editar-card);
 
-    border: solid, 1.5px var(--cor-media-criar-card);
+    border: solid, 1.5px var(--cor-media-editar-card);
 
     border-radius: 15px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, .1);
@@ -26,33 +26,14 @@
 }
 
 
-.container-card- {
-    --cor-contraste-criar-card: "#AA938B";
-    --cor-media-criar-card: "#C4B4AD";
-    --cor-base-criar-card: "#F5EBE6";
-    --cor-clara-escura-criar-card: "#E9D8D0";
-    --cor-clara-criar-card: "#FFFAF8";
-
-
-    margin-top: 10px;
-
-    width: 510px;
-    min-height: 205px;
-    background-color: var(--cor-base-criar-card);
-
-    border-radius: 15px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, .1);
-
-}
-
-.head-card-criar {
+.head-card-editar {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-.head-card-criar input {
-    color: var(--cor-contraste-criar-card);
+.head-card-editar input {
+    color: var(--cor-contraste-editar-card);
     padding: 25px;
     padding-top: 30px;
     border: none;
@@ -65,11 +46,11 @@
     font-weight: 500;
 }
 
-.head-card-criar input::placeholder {
-    color: var(--cor-contraste-criar-card);
+.head-card-editar input::placeholder {
+    color: var(--cor-contraste-editar-card);
 }
 
-.head-card-criar input:focus {
+.head-card-editar input:focus {
     outline: none;
 }
 
@@ -85,8 +66,8 @@
     border: none;
 
     font-size: var(--zoom-descricao-size);
-    color: var(--cor-contraste-criar-card);
-    background-color: var(--cor-clara-criar-card);
+    color: var(--cor-contraste-editar-card);
+    background-color: var(--cor-clara-editar-card);
     padding: 15px;
 
 
@@ -98,7 +79,7 @@
 .textarea-descricao-editar[contenteditable]:empty::before {
     content: "Meu primeiro card...";
     font-size: var(--zoom-descricao-size);
-    color: var(--cor-contraste-criar-card);
+    color: var(--cor-contraste-editar-card);
 }
 
 
@@ -117,14 +98,14 @@
 
 
 
-.bottom-card-criar {
+.bottom-card-editar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
 }
 
-.bottom-card-criar .tag-card-criar {
+.bottom-card-editar .tag-card-criar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -133,34 +114,34 @@
     width: 100px;
     height: 28px;
     border-radius: 50px;
-    background-color: var(--cor-clara-escura-criar-card);
+    background-color: var(--cor-clara-escura-editar-card);
 
     font-size: var(--zoom-descricao-size);
-    color: var(--cor-contraste-criar-card);
+    color: var(--cor-contraste-editar-card);
 
     text-align: center;
 }
 
-.bottom-card-criar .btn-criar-tarefa {
+.bottom-card-editar .btn-editar-tarefa {
 
     width: 137px;
     height: 37px;
     border-radius: 9px;
-    border: solid 1.7px var(--cor-contraste-criar-card);
+    border: solid 1.7px var(--cor-contraste-editar-card);
 
-    color: var(--cor-contraste-criar-card);
+    color: var(--cor-contraste-editar-card);
     font-size: var(--zoom-descricao-size);
 
     background: transparent;
 }
 
-.bottom-card-criar .btn-criar-tarefa:hover {
+.bottom-card-editar .btn-editar-tarefa:hover {
     cursor: pointer;
-    background-color: var(--cor-clara-escura-criar-card);
+    background-color: var(--cor-clara-escura-editar-card);
 }
 
 
-.btn-criar-desable {
+.btn-editar-desable {
     width: 137px;
     height: 37px;
     border-radius: 9px;
@@ -180,10 +161,3 @@
     font-style: bold;
     background-color: var(--cor-clara-escura);
 }
-
-
-
-/*CLASSE QUE MUDA ESTRUTURA COMPLESTAMENTE ----------
-#################################################
-#################################################
-#################################################*/

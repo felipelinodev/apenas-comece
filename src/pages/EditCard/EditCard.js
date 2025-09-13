@@ -8,13 +8,9 @@ import { useNavigate } from "react-router-dom"
 
 
 const EditCard = ({ cards, setCards, idCardDubleClicado, categoriasSalvas }) => {
-
-
     const id_card_edit = idCardDubleClicado
 
     const navigate = useNavigate()
-
-    const [id, setId] = useState(0)
 
     const [cor, setCor] = useState("cor-5")
     const criarCardRef = useRef(null)
@@ -24,36 +20,36 @@ const EditCard = ({ cards, setCards, idCardDubleClicado, categoriasSalvas }) => 
     //Design patern Strategy para reduzir ifs feiosos
     const paletaCores = useMemo(() => ({
         "cor-1": () => {
-            criarCardRef.current.style.setProperty("--cor-contraste-criar-card", "#D4A360");
-            criarCardRef.current.style.setProperty("--cor-media-criar-card", "#F5CC93");
-            criarCardRef.current.style.setProperty("--cor-base-criar-card", "#fff3e2ff");
-            criarCardRef.current.style.setProperty("--cor-clara-escura-criar-card", "#F6E2C7");
-            criarCardRef.current.style.setProperty("--cor-clara-criar-card", "#fffffeff");
+            criarCardRef.current.style.setProperty("--cor-contraste-editar-card", "#D4A360");
+            criarCardRef.current.style.setProperty("--cor-media-editar-card", "#F5CC93");
+            criarCardRef.current.style.setProperty("--cor-base-editar-card", "#fff3e2ff");
+            criarCardRef.current.style.setProperty("--cor-clara-escura-editar-card", "#F6E2C7");
+            criarCardRef.current.style.setProperty("--cor-clara-editar-card", "#fffffeff");
         },
         "cor-2": () => {
-            criarCardRef.current.style.setProperty("--cor-contraste-criar-card", "#c76053ff")
-            criarCardRef.current.style.setProperty("--cor-media-criar-card", "#FDA99E")
-            criarCardRef.current.style.setProperty("--cor-base-criar-card", "#FFE0DB")
-            criarCardRef.current.style.setProperty("--cor-clara-escura-criar-card", "#F4B0A7")
-            criarCardRef.current.style.setProperty("--cor-clara-criar-card", "#FFEEEF")
+            criarCardRef.current.style.setProperty("--cor-contraste-editar-card", "#c76053ff")
+            criarCardRef.current.style.setProperty("--cor-media-editar-card", "#FDA99E")
+            criarCardRef.current.style.setProperty("--cor-base-editar-card", "#FFE0DB")
+            criarCardRef.current.style.setProperty("--cor-clara-escura-editar-card", "#F4B0A7")
+            criarCardRef.current.style.setProperty("--cor-clara-editar-card", "#FFEEEF")
 
         },
 
         "cor-3": () => {
-            criarCardRef.current.style.setProperty("--cor-contraste-criar-card", "#442C6C")
-            criarCardRef.current.style.setProperty("--cor-media-criar-card", "#9080C7")
-            criarCardRef.current.style.setProperty("--cor-base-criar-card", "#ded3f7ff")
-            criarCardRef.current.style.setProperty("--cor-clara-escura-criar-card", "#BFB5E8")
-            criarCardRef.current.style.setProperty("--cor-clara-criar-card", "#F0E9FF")
+            criarCardRef.current.style.setProperty("--cor-contraste-editar-card", "#442C6C")
+            criarCardRef.current.style.setProperty("--cor-media-editar-card", "#9080C7")
+            criarCardRef.current.style.setProperty("--cor-base-editar-card", "#ded3f7ff")
+            criarCardRef.current.style.setProperty("--cor-clara-escura-editar-card", "#BFB5E8")
+            criarCardRef.current.style.setProperty("--cor-clara-editar-card", "#F0E9FF")
 
         },
 
         "cor-4": () => {
-            criarCardRef.current.style.setProperty("--cor-contraste-criar-card", "#345B4D")
-            criarCardRef.current.style.setProperty("--cor-media-criar-card", "#5E9985")
-            criarCardRef.current.style.setProperty("--cor-base-criar-card", "#DEF4EC")
-            criarCardRef.current.style.setProperty("--cor-clara-escura-criar-card", "#A8DECC")
-            criarCardRef.current.style.setProperty("--cor-clara-criar-card", "#F3FFFA")
+            criarCardRef.current.style.setProperty("--cor-contraste-editar-card", "#345B4D")
+            criarCardRef.current.style.setProperty("--cor-media-editar-card", "#5E9985")
+            criarCardRef.current.style.setProperty("--cor-base-editar-card", "#DEF4EC")
+            criarCardRef.current.style.setProperty("--cor-clara-escura-editar-card", "#A8DECC")
+            criarCardRef.current.style.setProperty("--cor-clara-editar-card", "#F3FFFA")
 
         },
 
@@ -62,7 +58,7 @@ const EditCard = ({ cards, setCards, idCardDubleClicado, categoriasSalvas }) => 
             criarCardRef.current.style.setProperty("--cor-media-criar-card", "#C4B4AD")
             criarCardRef.current.style.setProperty("--cor-base-criar-card", "#F5EBE6")
             criarCardRef.current.style.setProperty("--cor-clara-escura-criar-card", "#E9D8D0")
-            criarCardRef.current.style.setProperty("--cor-clara-criar-card", "#FFFAF8")
+            criarCardRef.current.style.setProperty("--cor-clara-editar-card", "#FFFAF8")
         },
 
 
@@ -86,20 +82,22 @@ const EditCard = ({ cards, setCards, idCardDubleClicado, categoriasSalvas }) => 
     const [subtituloEdit, setSubtituloEdit] = useState("")
     const [categoria, setCategoria] = useState("")
 
-    const [editCardClicado, setEditCardClicado] = useState(false)
-
+    const [editCardClicado] = useState(false)
 
 
     useEffect(() => {
-        cards.map((tarefa) => {
+        cards.forEach((tarefa) => {
             if (tarefa.id === id_card_edit) {
                 setCor(tarefa.cor)
                 setTitulo(tarefa.titulo)
                 setCategoria(tarefa.categoria)
                 setSubtituloEdit(tarefa.subtitulo)
+
+                return
             }
         })
-    }, [])
+
+    }, [cards, id_card_edit])
 
 
     useEffect(() => {
@@ -115,7 +113,7 @@ const EditCard = ({ cards, setCards, idCardDubleClicado, categoriasSalvas }) => 
             document.removeEventListener("dblclick", handdleDoubleClick)
         }
 
-    }, [navigate])
+    }, [navigate, editCardClicado])
 
 
     const handleInputTitulo = (event) => {
@@ -169,23 +167,24 @@ const EditCard = ({ cards, setCards, idCardDubleClicado, categoriasSalvas }) => 
     return (
         <div ref={criarCardRef} className="container-card-ediar">
             <form>
-                <div className='head-card-criar'>
+                <div className='head-card-editar'>
                     <input type="text" placeholder="Titulo" onChange={handleInputTitulo} ref={refTitulo} value={titulo} />
                     <MudarCor setCor={setCor} cor={cor} />
 
                 </div>
-                <span className="textarea-descricao-editar" contentEditable onInput={handleInputDescricao}>{subtituloEdit != "" ? subtituloEdit : null}</span>
-                <div className="bottom-card-criar">
+                <span className="textarea-descricao-editar" contentEditable onInput={handleInputDescricao}>{subtituloEdit !== "" ? subtituloEdit : null}</span>
+                <div className="bottom-card-editar">
                     {/* <span className='tag-card-criar'><p>Categoria</p></span> */}
                     <CriarCategoria cor={cor} setCategoria={setCategoria} categoria={categoria} categoriasSalvas={categoriasSalvas} />
-                    {estadoButonCriar && <button className="btn-criar-tarefa" onClick={handleSave}>Editar</button>}
-                    {!estadoButonCriar && <button className="btn-criar-desable" onClick={handleSave} disabled>Editar</button>}
+                    {estadoButonCriar && <button className="btn-editar-tarefa" onClick={handleSave}>Editar</button>}
+                    {!estadoButonCriar && <button className="btn-editar-desable" onClick={handleSave} disabled>Editar</button>}
 
                 </div>
             </form>
         </div>
     )
 }
+
 
 export default EditCard
 

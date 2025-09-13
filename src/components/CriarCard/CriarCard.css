@@ -1,6 +1,4 @@
-
-
-.container-card-criar{
+.container-card-criar {
     --cor-contraste-criar-card: "#AA938B";
     --cor-media-criar-card: "#C4B4AD";
     --cor-base-criar-card: "#F5EBE6";
@@ -17,14 +15,16 @@
     border: solid, 2px var(--cor-clara-criar-card);
 
     border-radius: 15px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, .1);}
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, .1);
+}
 
-.head-card-criar{
+.head-card-criar {
     display: flex;
     align-items: center;
-    justify-content: space-around;}
+    justify-content: space-around;
+}
 
-.head-card-criar input{
+.head-card-criar input {
     color: var(--cor-contraste-criar-card);
     padding: 25px;
     padding-top: 30px;
@@ -32,24 +32,27 @@
 
     width: 100%;
     height: 30px;
-    
+
     font-size: var(--zoom-titulo-size);
     background: transparent;
-    font-weight: 500;}
+    font-weight: 500;
+}
 
-.head-card-criar input::placeholder{
-    color: var(--cor-contraste-criar-card);}
+.head-card-criar input::placeholder {
+    color: var(--cor-contraste-criar-card);
+}
 
-.head-card-criar input:focus{
-    outline: none;}
+.head-card-criar input:focus {
+    outline: none;
+}
 
 
 
 
 
-.textarea-descricao-card{
+.textarea-descricao-card {
     width: 95%;
-    min-height:80px;
+    min-height: 80px;
     margin: 10px;
     border-radius: 9px;
     border: none;
@@ -58,20 +61,23 @@
     color: var(--cor-contraste-criar-card);
     background-color: var(--cor-clara-criar-card);
     padding: 15px;
-    
+
 
     resize: vertical;
     display: block;
-    overflow: hidden;}
+    overflow: hidden;
+}
 
-.textarea-descricao-card[contenteditable]:empty::before{
+.textarea-descricao-card[contenteditable]:empty::before {
     content: "Meu primeiro card...";
     font-size: var(--zoom-descricao-size);
-    color: var(--cor-contraste-criar-card);} 
+    color: var(--cor-contraste-criar-card);
+}
 
 
-.textarea-descricao-card:focus{
-    outline: none;}
+.textarea-descricao-card:focus {
+    outline: none;
+}
 
 
 
@@ -83,12 +89,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;}
+    padding: 10px;
+}
 
 
 
-.btn-criar-tarefa{
-    
+.btn-criar-tarefa {
+
     width: 137px;
     height: 37px;
     border-radius: 9px;
@@ -97,18 +104,20 @@
     color: var(--cor-contraste-criar-card);
     font-size: var(--zoom-descricao-size);
 
-    background: transparent;}
+    background: transparent;
+}
 
-.bottom-card-criar .btn-criar-tarefa:hover{
+.bottom-card-criar .btn-criar-tarefa:hover {
     cursor: pointer;
-    background-color: var(--cor-clara-escura-criar-card);}
+    background-color: var(--cor-clara-escura-criar-card);
+}
 
 
-.btn-criar-desable{
+.btn-criar-desable {
     width: 137px;
     height: 37px;
     border-radius: 9px;
-    border: solid 1.7px var(--cor-clara-escura);
+    border: solid 1.7px var(--cor-clara-escura-criar-card);
 
     color: var(--cor-media);
     font-size: var(--zoom-descricao-size);
@@ -119,13 +128,16 @@
 }
 
 
-::selection{
+::selection {
     font-weight: 700;
     font-style: bold;
-    background-color: var(--cor-clara-escura);
+    background-color: var(--cor-clara-escura-criar-card);
 }
 
 
+.titulo-criar-card {
+    color: var(--cor-contraste-criar-card);
+}
 
 
 /*CLASSE QUE MUDA ESTRUTURA COMPLESTAMENTE ----------

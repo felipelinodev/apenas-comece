@@ -1,9 +1,13 @@
-.categoria {
+.pai-categ {
     --cor-contraste-categ: #AA938B;
     --cor-media-categ: #C4B4AD;
     --cor-base-categ: #F5EBE6;
     --cor-clara-escura-categ: #E9D8D0;
     --cor-clara-categ: #FFFAF8;
+
+}
+
+.categoria {
 
 
     text-align: center;
@@ -16,12 +20,13 @@
     border-radius: 50px;
     background-color: inherit;
 
-    color: inherit;
+    color: var(--cor-contraste-categ);
     font-size: var(--zoom-descricao-size);
 }
 
 .categoria:focus {
     outline: none;
+    color: var(--cor-contraste-categ);
 }
 
 .categoria::placeholder {
