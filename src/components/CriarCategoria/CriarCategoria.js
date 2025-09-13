@@ -81,7 +81,7 @@ const CriarCategoria = ({ cor, setCategoria, categoria, categoriasSalvas }) => {
           className={estadoVisible ? "categorias-salvas-visible" : "recomendations-categoria"}
           onClick={() => { setEstadoVisible(false) }}
         >
-          {categoriasSalvas.map((categ) => (
+          {categoriasSalvas && categoriasSalvas.map((categ) => (
             <li onClick={() => setCategoria(categ)}>{categ}</li>
           ))}
         </div>
