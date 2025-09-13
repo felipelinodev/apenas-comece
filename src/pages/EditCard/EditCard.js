@@ -1,10 +1,10 @@
 import "./EditCard.css"
-import MudarCor from "./MudarCor"
+import MudarCor from "../../components/MudarCor/MudarCor"
 import CriarCategoria from "../../components/CriarCategoria/CriarCategoria"
 
 
 import { useEffect, useState, useRef, useMemo } from "react"
-import { useNavigate, useLocation } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 
 const EditCard = ({ cards, setCards, idCardDubleClicado, categoriasSalvas }) => {
@@ -85,10 +85,8 @@ const EditCard = ({ cards, setCards, idCardDubleClicado, categoriasSalvas }) => 
     const [subtitulo, setSubtitulo] = useState("")
     const [subtituloEdit, setSubtituloEdit] = useState("")
     const [categoria, setCategoria] = useState("")
-    const [printTituo, setPrintTitulo] = useState(false)
 
     const [editCardClicado, setEditCardClicado] = useState(false)
-    const localizacaoPagina = useLocation().pathname
 
 
 

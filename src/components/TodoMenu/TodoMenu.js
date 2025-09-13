@@ -1,9 +1,11 @@
-import { useState } from "react"
-import LogoTodo from "../../icones/LOGO_OFICIAL.png"
 import "./TodoMenu.css"
-import { LampadaSvg } from "./LampadaSvg"
-import { SeloSvg } from "./SeloSvg"
-import { DeleteSvg } from "./DeleteSvg"
+
+import { useState } from "react"
+
+import LogoTodo from "../../icones/logo_oficial.png"
+import { LampadaSvg } from "../../svg/LampadaSvg"
+import { SeloSvg } from "../../svg/SeloSvg"
+import { DeleteSvg } from "../../svg/DeleteSvg"
 
 const TodoMenu = ({ setCategoriasSalvas, categoriasSalvas }) => {
 

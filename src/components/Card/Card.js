@@ -1,10 +1,11 @@
 import "./Card.css"
-import MudarCor from "../CriarCard/MudarCor"
-import { useState, useRef, useEffect } from "react"
+import MudarCor from "../MudarCor/MudarCor"
+import { useState, useRef, useEffect, useMemo } from "react"
 import { useNavigate } from "react-router-dom"
+import { LixeiraSvg } from "../../svg/LixeiraSvg"
 
 
-const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, setidCardDubleClicado, setNumCardsLixeira, numCardsLixeira, numCardsConcluidos, setNumCardsConcluidos }) => {
+const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, setidCardDubleClicado, setNumCardsLixeira, setNumCardsConcluidos }) => {
 
 
     const [cor, setCor] = useState("")
@@ -20,7 +21,8 @@ const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, s
     }, [corDeCriacao])
 
     //Design patern Strategy para reduzir ifs feiosos
-    const paletaCores = {
+
+    const paletaCores = useMemo(() => ({
         "cor-1": () => {
             cardRef.current.style.setProperty("--cor-contraste-card", "#D4A360");
             cardRef.current.style.setProperty("--cor-media-card", "#F5CC93");
@@ -60,7 +62,7 @@ const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, s
             cardRef.current.style.setProperty("--cor-clara-card", "#FFFAF8")
 
         }
-    }
+    }), [])
 
     useEffect(() => {
         try {
@@ -75,7 +77,7 @@ const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, s
         removerTarefa(id)
         setNumCardsLixeira((prevNumCardLixeira) => prevNumCardLixeira + 1)
 
-        if(estadoCheck){
+        if (estadoCheck) {
             setNumCardsConcluidos((prevNumCardsConcluidos) => prevNumCardsConcluidos - 1)
         }
 
@@ -117,7 +119,7 @@ const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, s
                 </div>
                 <div className='card-bottom'>
                     <div className='card-left'>
-                        <span className='card-tag'><p>{categoria === "" ? "Categoria": categoria}</p></span>
+                        <span className='card-tag'><p>{categoria === "" ? "Categoria" : categoria}</p></span>
                         {estadoCheck ? (
                             <></>
                         ) : (
@@ -128,9 +130,7 @@ const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, s
 
                     </div>
                     <div className='card-delete-bottom' onClick={deletarCard}>
-                        <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.39447 14.42C1.95548 14.42 1.57969 14.2637 1.26707 13.9511C0.954462 13.6385 0.798157 13.2627 0.798157 12.8237V2.44763H0V0.851318H3.99078V0.0531616H8.77972V0.851318H12.7705V2.44763H11.9724V12.8237C11.9724 13.2627 11.816 13.6385 11.5034 13.9511C11.1908 14.2637 10.815 14.42 10.376 14.42H2.39447ZM3.99078 11.2274H5.5871V4.04395H3.99078V11.2274ZM7.18341 11.2274H8.77972V4.04395H7.18341V11.2274Z" fill="none" />
-                        </svg>
+                        <LixeiraSvg />
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import "./CriarCard.css"
-import MudarCor from "./MudarCor"
+import MudarCor from "../MudarCor/MudarCor"
 import CriarCategoria from "../CriarCategoria/CriarCategoria"
 
 
@@ -34,27 +34,21 @@ export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou, cate
             criarCardRef.current.style.setProperty("--cor-base-criar-card", "#FFE0DB")
             criarCardRef.current.style.setProperty("--cor-clara-escura-criar-card", "#F4B0A7")
             criarCardRef.current.style.setProperty("--cor-clara-criar-card", "#FFEEEF")
-
         },
-
         "cor-3": () => {
             criarCardRef.current.style.setProperty("--cor-contraste-criar-card", "#442C6C")
             criarCardRef.current.style.setProperty("--cor-media-criar-card", "#9080C7")
             criarCardRef.current.style.setProperty("--cor-base-criar-card", "#ded3f7ff")
             criarCardRef.current.style.setProperty("--cor-clara-escura-criar-card", "#BFB5E8")
             criarCardRef.current.style.setProperty("--cor-clara-criar-card", "#F0E9FF")
-
         },
-
         "cor-4": () => {
             criarCardRef.current.style.setProperty("--cor-contraste-criar-card", "#345B4D")
             criarCardRef.current.style.setProperty("--cor-media-criar-card", "#5E9985")
             criarCardRef.current.style.setProperty("--cor-base-criar-card", "#DEF4EC")
             criarCardRef.current.style.setProperty("--cor-clara-escura-criar-card", "#A8DECC")
             criarCardRef.current.style.setProperty("--cor-clara-criar-card", "#F3FFFA")
-
         },
-
         "cor-5": () => {
             criarCardRef.current.style.setProperty("--cor-contraste-criar-card", "#AA938B")
             criarCardRef.current.style.setProperty("--cor-media-criar-card", "#C4B4AD")
@@ -62,7 +56,6 @@ export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou, cate
             criarCardRef.current.style.setProperty("--cor-clara-escura-criar-card", "#E9D8D0")
             criarCardRef.current.style.setProperty("--cor-clara-criar-card", "#FFFAF8")
         },
-
 
     }), [])
 
@@ -121,7 +114,7 @@ export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou, cate
         setSubtitulo("")
         setSeAlgumCardCriou(true)
         navigate("/cards")
-        
+
     }
 
 
