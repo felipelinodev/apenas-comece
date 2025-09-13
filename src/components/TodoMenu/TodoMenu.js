@@ -2,7 +2,7 @@ import "./TodoMenu.css"
 
 import { useState } from "react"
 
-import LogoTodo from "../../icones/logo_oficial.png"
+import LogoTodo from "../../icones/LOGO_OFICIAL.png"
 import { LampadaSvg } from "../../svg/LampadaSvg"
 import { SeloSvg } from "../../svg/SeloSvg"
 import { DeleteSvg } from "../../svg/DeleteSvg"
