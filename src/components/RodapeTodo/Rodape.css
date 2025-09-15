@@ -8,7 +8,7 @@
 
     padding: 10px 10px;
 
-    background-color: #F5EBE6;
+    background-color: var(--cor-clara);
     border-radius: 9px;
     margin-top: 20px;
 

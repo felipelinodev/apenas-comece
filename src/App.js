@@ -15,10 +15,11 @@ import TodoMenu from './components/TodoMenu/TodoMenu';
 import ProgressoTodo from './components/ProgressoTodo/ProgressoTodo';
 
 //CustomHooks
-import { SalvarLocalStorage, PegarDadosLocalStorage, RemoverDadosLocalStorage, } from "./hooks/LocalStorageManager"
+import { SalvarLocalStorage, PegarDadosLocalStorage } from "./hooks/LocalStorageManager"
 
 function App() {
   const localizacaoPagina = useLocation().pathname
+
 
   // States 
   const [cards, setCards] = useState([{
@@ -73,13 +74,23 @@ function App() {
     setNumCardsPendentes(cards.length - numCardsConcluidos)
   }, [cards, numCardsConcluidos])
 
+  // const [loadingDados, setLoadingDados] = useState(false)
 
 
-  // Carregar dados só uma vez na montagem
+
+
   useEffect(() => {
     const dadosSalvos = PegarDadosLocalStorage("todosCards")
+    const categoriasLocal = PegarDadosLocalStorage("todasCategorias")
+
     if (dadosSalvos) {
       setCards(dadosSalvos)
+      // setLoadingDados(true)
+    }
+
+    if (categoriasLocal) {
+      setCategoriasSalvas(categoriasLocal)
+
     }
   }, [])
 
@@ -87,9 +98,6 @@ function App() {
   useEffect(() => {
     SalvarLocalStorage(cards, categoriasSalvas)
   }, [cards, categoriasSalvas])
-
-
-
 
 
   return (
@@ -187,6 +195,7 @@ function App() {
         <ProgressoTodo numCardsConcluidos={numCardsConcluidos} totalCards={cards.length} /> : null}
 
     </div>
+
   );
 }
 

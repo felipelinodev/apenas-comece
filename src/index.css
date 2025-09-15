@@ -16,8 +16,8 @@
 
   /*Fica veaco rapaiz, só o card de criação pode herdar isso, pegou? Você não quer mudar TODAS as cores não é
     bonitão? */
-  --cor-contraste: #AA938B;
 
+  --cor-contraste: #AA938B;
   --cor-media: #C4B4AD;
   --cor-base: #F5EBE6;
   --cor-clara-escura: #E9D8D0;
@@ -85,9 +85,10 @@ body {
 
 
 html {
-  background-image: url("./images/backGroundfundo.gif");
-  background-size: cover;
+  /* background-image: url("./images/backGroundfundo.gif");
+  background-size: cover; */
   /* background: linear-gradient(0deg, rgba(233, 216, 206, 1) 0%, rgba(247, 238, 254, 1) 100%); */
+  background-color: var(--cor-base);
 
 }
 
