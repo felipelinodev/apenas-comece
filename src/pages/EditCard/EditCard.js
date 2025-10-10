@@ -54,10 +54,10 @@ const EditCard = ({ cards, setCards, idCardDubleClicado, categoriasSalvas }) => 
         },
 
         "cor-5": () => {
-            criarCardRef.current.style.setProperty("--cor-contraste-criar-card", "#AA938B")
-            criarCardRef.current.style.setProperty("--cor-media-criar-card", "#C4B4AD")
-            criarCardRef.current.style.setProperty("--cor-base-criar-card", "#F5EBE6")
-            criarCardRef.current.style.setProperty("--cor-clara-escura-criar-card", "#E9D8D0")
+            criarCardRef.current.style.setProperty("--cor-contraste-editar-card", "#AA938B")
+            criarCardRef.current.style.setProperty("--cor-media-editar-card", "#C4B4AD")
+            criarCardRef.current.style.setProperty("--cor-base-editar-card", "#F5EBE6")
+            criarCardRef.current.style.setProperty("--cor-clara-escura-editar-card", "#E9D8D0")
             criarCardRef.current.style.setProperty("--cor-clara-editar-card", "#FFFAF8")
         },
 
@@ -140,7 +140,7 @@ const EditCard = ({ cards, setCards, idCardDubleClicado, categoriasSalvas }) => 
                 return {
                     ...tarefa,
                     titulo,
-                    subtitulo,
+                    subtitulo: subtitulo || subtituloEdit,
                     cor,
                     categoria,
                 }

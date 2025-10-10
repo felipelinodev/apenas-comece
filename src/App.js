@@ -27,21 +27,24 @@ function App() {
     categoria: "Começo",
     cor: "cor-1",
     titulo: "Tarefa 1 – Refletir",
-    subtitulo: "Pense sobre o que é realmente importante para você — não o que a sociedade diz que você precisa."
+    subtitulo: "Pense sobre o que é realmente importante para você — não o que a sociedade diz que você precisa.",
+    concluido: false
   },
   {
     id: 2,
     categoria: "Começo",
     cor: "cor-2",
     titulo: "Tarefa 2 – Desconstrução",
-    subtitulo: "Liberte-se da ideia de que existe um “caminho perfeito”.\nSiga o que faz sentido para você agora, aquilo que está alinhado com seus propósitos."
+    subtitulo: "Liberte-se da ideia de que existe um \"caminho perfeito\".\nSiga o que faz sentido para você agora, aquilo que está alinhado com seus propósitos.",
+    concluido: false
   },
   {
     id: 3,
     categoria: "Começo",
     cor: "cor-4",
     titulo: "Tarefa 3 – Apenas Comece",
-    subtitulo: "Respire fundo, sinta-se leve e dê o primeiro passo."
+    subtitulo: "Respire fundo, sinta-se leve e dê o primeiro passo.",
+    concluido: false
   }])
   const [dados, setTdados] = useState({})
 
@@ -70,9 +73,19 @@ function App() {
     setCards((prevState) => prevState.filter((card) => card.id !== id))
   }
 
+  const atualizarEstadoConcluido = (id, concluido) => {
+    setCards((prevState) => 
+      prevState.map((card) => 
+        card.id === id ? { ...card, concluido } : card
+      )
+    )
+  }
+
   useEffect(() => {
-    setNumCardsPendentes(cards.length - numCardsConcluidos)
-  }, [cards, numCardsConcluidos])
+    const cardsConcluidos = cards.filter(card => card.concluido).length
+    setNumCardsConcluidos(cardsConcluidos)
+    setNumCardsPendentes(cards.length - cardsConcluidos)
+  }, [cards])
 
   // const [loadingDados, setLoadingDados] = useState(false)
 
@@ -82,22 +95,36 @@ function App() {
   useEffect(() => {
     const dadosSalvos = PegarDadosLocalStorage("todosCards")
     const categoriasLocal = PegarDadosLocalStorage("todasCategorias")
+    const numCardsConcluidosLocal = PegarDadosLocalStorage("numCardsConcluidos")
+    const numCardsPendentesLocal = PegarDadosLocalStorage("numCardsPendentes")
 
     if (dadosSalvos) {
-      setCards(dadosSalvos)
+      // Garantir que todos os cards tenham a propriedade 'concluido'
+      const cardsComConcluido = dadosSalvos.map(card => ({
+        ...card,
+        concluido: card.concluido !== undefined ? card.concluido : false
+      }))
+      setCards(cardsComConcluido)
       // setLoadingDados(true)
     }
 
     if (categoriasLocal) {
       setCategoriasSalvas(categoriasLocal)
+    }
 
+    if (numCardsConcluidosLocal !== null) {
+      setNumCardsConcluidos(numCardsConcluidosLocal)
+    }
+
+    if (numCardsPendentesLocal !== null) {
+      setNumCardsPendentes(numCardsPendentesLocal)
     }
   }, [])
 
   // Sempre que cards mudar, salvar no localStorage
   useEffect(() => {
-    SalvarLocalStorage(cards, categoriasSalvas)
-  }, [cards, categoriasSalvas])
+    SalvarLocalStorage(cards, categoriasSalvas, numCardsConcluidos, numCardsPendentes)
+  }, [cards, categoriasSalvas, numCardsConcluidos, numCardsPendentes])
 
 
   return (
@@ -123,10 +150,12 @@ function App() {
                         subtitulo={tarefa.subtitulo}
                         corDeCriacao={tarefa.cor}
                         categoria={tarefa.categoria}
+                        concluido={tarefa.concluido}
                         setidCardDubleClicado={setidCardDubleClicado}
                         numCardsLixeira={numCardsLixeira}
                         setNumCardsConcluidos={setNumCardsConcluidos}
                         numCardsConcluidos={numCardsConcluidos}
+                        atualizarEstadoConcluido={atualizarEstadoConcluido}
                       />
 
                     ))}
@@ -145,11 +174,13 @@ function App() {
                         subtitulo={tarefa.subtitulo}
                         corDeCriacao={tarefa.cor}
                         categoria={tarefa.categoria}
+                        concluido={tarefa.concluido}
                         setidCardDubleClicado={setidCardDubleClicado}
                         setNumCardsLixeira={setNumCardsLixeira}
                         numCardsLixeira={numCardsLixeira}
                         setNumCardsConcluidos={setNumCardsConcluidos}
-                        numCardsConcluidos={numCardsConcluidos} />
+                        numCardsConcluidos={numCardsConcluidos}
+                        atualizarEstadoConcluido={atualizarEstadoConcluido} />
                     ))}
                   </CaixaDeCards>
                 </>
@@ -169,8 +200,12 @@ function App() {
                     subtitulo={tarefa.subtitulo}
                     corDeCriacao={tarefa.cor}
                     categoria={tarefa.categoria}
+                    concluido={tarefa.concluido}
                     setidCardDubleClicado={setidCardDubleClicado}
-                    setNumCardsLixeira={setNumCardsLixeira} />
+                    setNumCardsLixeira={setNumCardsLixeira}
+                    setNumCardsConcluidos={setNumCardsConcluidos}
+                    numCardsConcluidos={numCardsConcluidos}
+                    atualizarEstadoConcluido={atualizarEstadoConcluido} />
                 ))}
               </CaixaDeCards>
             </>

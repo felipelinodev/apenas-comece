@@ -108,6 +108,7 @@ export const CriarCard = ({ setTdados, comecoDeDigito, setSeAlgumCardCriou, cate
             cor,
             id: novoId,
             categoria,
+            concluido: false,
         })
 
         setTitulo("")

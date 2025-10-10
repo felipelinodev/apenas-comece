@@ -1,10 +1,18 @@
-const SalvarLocalStorage = (meusCards, categorias) => {
+const SalvarLocalStorage = (meusCards, categorias, numCardsConcluidos = null, numCardsPendentes = null) => {
     if (meusCards !== null) {
         localStorage.setItem("todosCards", JSON.stringify(meusCards))
     }
 
     if (categorias !== null) {
         localStorage.setItem('todasCategorias', JSON.stringify(categorias))
+    }
+
+    if (numCardsConcluidos !== null) {
+        localStorage.setItem('numCardsConcluidos', JSON.stringify(numCardsConcluidos))
+    }
+
+    if (numCardsPendentes !== null) {
+        localStorage.setItem('numCardsPendentes', JSON.stringify(numCardsPendentes))
     }
 
 }

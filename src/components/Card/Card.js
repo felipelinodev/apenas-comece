@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom"
 import { LixeiraSvg } from "../../svg/LixeiraSvg"
 
 
-const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, setidCardDubleClicado, setNumCardsLixeira, setNumCardsConcluidos }) => {
+const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, concluido, setidCardDubleClicado, setNumCardsLixeira, setNumCardsConcluidos, atualizarEstadoConcluido }) => {
 
 
     const [cor, setCor] = useState("")
     const cardRef = useRef(null)
-    const [estadoCheck, setEstadoCheck] = useState(false)
+    const [estadoCheck, setEstadoCheck] = useState(concluido || false)
 
     const navigate = useNavigate()
 
@@ -19,6 +19,10 @@ const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, s
         setCor(corDeCriacao)
 
     }, [corDeCriacao])
+
+    useEffect(() => {
+        setEstadoCheck(concluido || false)
+    }, [concluido])
 
     //Design patern Strategy para reduzir ifs feiosos
 
@@ -76,24 +80,17 @@ const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, s
     const deletarCard = () => {
         removerTarefa(id)
         setNumCardsLixeira((prevNumCardLixeira) => prevNumCardLixeira + 1)
-
-        if (estadoCheck) {
-            setNumCardsConcluidos((prevNumCardsConcluidos) => prevNumCardsConcluidos - 1)
-        }
-
     }
 
     const handleCheck = () => {
         // Quando eu checar, muda as classes daquele card em especifico
-        setEstadoCheck(!estadoCheck)
-
-        if (!estadoCheck) {
-            setNumCardsConcluidos((prevNumCardsConcluidos) => prevNumCardsConcluidos + 1)
-        } else {
-            setNumCardsConcluidos((prevNumCardsConcluidos) => prevNumCardsConcluidos - 1)
+        const novoEstado = !estadoCheck
+        setEstadoCheck(novoEstado)
+        
+        // Atualizar o estado no App.js
+        if (atualizarEstadoConcluido) {
+            atualizarEstadoConcluido(id, novoEstado)
         }
-
-
     }
 
     const handleDoubleClick = () => {
@@ -112,7 +109,7 @@ const Card = ({ titulo, corDeCriacao, removerTarefa, subtitulo, id, categoria, s
             <div className='card' ref={cardRef} onDoubleClick={handleDoubleClick}>
                 <div className={estadoCheck ? 'card_head_check' : 'card-head'}>
                     <h1>{titulo}</h1>
-                    <input type="checkbox" className="checkbox-redondo" onClick={handleCheck} />
+                    <input type="checkbox" className="checkbox-redondo" checked={estadoCheck} onChange={handleCheck} />
                 </div>
                 <div className={estadoCheck ? 'card-text-check' : 'card-text'}>
                     <p>{subtitulo}</p>
