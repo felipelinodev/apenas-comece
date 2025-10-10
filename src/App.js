@@ -127,6 +127,20 @@ function App() {
   }, [cards, categoriasSalvas, numCardsConcluidos, numCardsPendentes])
 
 
+  // Aplicar classe ao html baseado na rota
+  useEffect(() => {
+    if (localizacaoPagina === "/") {
+      document.documentElement.classList.add("rota-raiz")
+    } else {
+      document.documentElement.classList.remove("rota-raiz")
+    }
+    
+    // Cleanup ao desmontar
+    return () => {
+      document.documentElement.classList.remove("rota-raiz")
+    }
+  }, [localizacaoPagina])
+
   return (
     <div className="App">
       {localizacaoPagina === "/cards" || localizacaoPagina === "/edit" || localizacaoPagina === "/criar_card" ?

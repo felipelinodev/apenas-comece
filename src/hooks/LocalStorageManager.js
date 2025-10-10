@@ -1,38 +1,45 @@
 const SalvarLocalStorage = (meusCards, categorias, numCardsConcluidos = null, numCardsPendentes = null) => {
-    if (meusCards !== null) {
-        localStorage.setItem("todosCards", JSON.stringify(meusCards))
-    }
+    try {
+        if (meusCards !== null) {
+            localStorage.setItem("todosCards", JSON.stringify(meusCards))
+        }
 
-    if (categorias !== null) {
-        localStorage.setItem('todasCategorias', JSON.stringify(categorias))
-    }
+        if (categorias !== null) {
+            localStorage.setItem('todasCategorias', JSON.stringify(categorias))
+        }
 
-    if (numCardsConcluidos !== null) {
-        localStorage.setItem('numCardsConcluidos', JSON.stringify(numCardsConcluidos))
-    }
+        if (numCardsConcluidos !== null) {
+            localStorage.setItem('numCardsConcluidos', JSON.stringify(numCardsConcluidos))
+        }
 
-    if (numCardsPendentes !== null) {
-        localStorage.setItem('numCardsPendentes', JSON.stringify(numCardsPendentes))
+        if (numCardsPendentes !== null) {
+            localStorage.setItem('numCardsPendentes', JSON.stringify(numCardsPendentes))
+        }
+    } catch (error) {
+        console.error('Erro ao salvar dados no localStorage:', error);
     }
-
 }
 
 const PegarDadosLocalStorage = (chave, id = null) => {
+    try {
+        const dadosLocal = JSON.parse(localStorage.getItem(chave))
 
-    const dadosLocal = JSON.parse(localStorage.getItem(chave))
+        if (!dadosLocal) {
+            return null
+        }
 
-    if (!dadosLocal) {
-        return null
+        if (id !== null) {
+            return dadosLocal.find(card => card.id === id);
+        }
+
+        return dadosLocal;
+    } catch (error) {
+        console.error('Erro ao recuperar dados do localStorage:', error);
+        return null;
     }
-
-    if (id !== null) {
-        return dadosLocal.find(card => card.id === id);
-    }
-
-    return dadosLocal;
 }
 
-const RemoverDadosLocalStorage = (chave, id = null, elementoArrat) => {
+const RemoverDadosLocalStorage = (chave, id = null, elementoArray) => {
 
     const dadosLocal = JSON.parse(localStorage.getItem(chave))
 

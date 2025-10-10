@@ -73,14 +73,20 @@ body {
 }
 
 html {
-  /* background-image: url("./images/backGroundfundo.gif");
-  background-size: cover; */
   background: linear-gradient(
     0deg,
     rgba(233, 216, 206, 1) 0%,
     rgba(247, 238, 254, 1) 100%
   );
   background-color: var(--cor-base);
+}
+
+/* Background específico para a rota raiz */
+.rota-raiz {
+  background-image: url("./images/backGroundfundo.gif") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
 }
 
 * {
